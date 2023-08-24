@@ -3,11 +3,18 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    height: 100vh;
+}
+.rowMap{
+  height: 8%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 .headerA{
   -webkit-box-shadow: 0px -28px 100px 9px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px -28px 100px 9px rgba(0,0,0,0.75);
   box-shadow: 0px -28px 100px 9px rgba(0,0,0,0.75);
+  height: 7.5%;
 }
 .button-28 {
     appearance: none;
@@ -243,30 +250,47 @@ body {
 }
 .mapaLayout {
   width: 100%;
-  height: 100vh;
+  height: 92.5%;
 
   display: grid;
   grid:
     "Mapa Descripcion" auto
     / 40% 60%;
 }
-
+@media screen and (max-width: 750px) {
+  .mapaLayout {
+    width: 100%;
+    height: 92.5%;
+  
+    display: grid;
+    grid:
+      "Mapa Descripcion" auto
+      / 100% 0%;
+  }
+  .Mapa { 
+    grid-area: Mapa; 
+    background-image: url("../img/FondoMapaTurismo3.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .Descripcion { display: none; }
+}
 .Mapa { 
   grid-area: Mapa; 
-  background-image: url("../img/FondoMapaTurismo2.png");
+  background-image: url("../img/FondoMapaTurismo3.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 .Descripcion { grid-area: Descripcion; }
 
 .mapContainer.mapContainer{
-padding-top: 7%;
-padding-left: 18%;
-padding-right: 13%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .mapConteinerConteiner.mapConteinerConteiner{
-  height: 100%;
-  width: 100%;
+  height: 85%;
+  width: 65%;
 }
 
 .fila {
@@ -276,14 +300,14 @@ padding-right: 13%;
 }
 
 .standVer {
-  width: 3.66vh;
-  height: 6.33vh;
+  width: 45%;
+  height: 100%;
   background-color: #FAFBFD;
   border-radius: 3px;
 }
 .standHor {
-  width: 6.33vh;
-  height: 3.66vh;
+  width: 80%;
+  height: 55%;
   background-color: #FAFBFD;
   border-radius: 3px;
 }
@@ -294,26 +318,34 @@ padding-right: 13%;
   border: 2px solid #672d39;
 }
 .standVerINVISIBLE{
-  width: 3.66vh;
-  height: 6.33vh;
+  width: 60%;
+  height: 100%;
 }
 .standHorINVISIBLE{
-  width: 6.33vh;
-  height: 3.66vh;
+  width: 80%;
+  height: 55%;
 }
 .standAjusteV.standAjusteV{
   padding-top: 1%;
   padding-bottom: 1%;
+  padding-left: 0%;
+  padding-right: 0%;
   display: flex; /* Establece el contenedor externo como un contenedor flexible */
   justify-content: center; /* Centra horizontalmente el contenido */
   align-items: center; /* Centra verticalmente el contenido */
+  height: 100%;
+  width: 100%;
 }
 .standAjusteH.standAjusteH{
   padding-left: 1%;
   padding-right: 1%;
+  padding-top: 0%;
+  padding-bottom: 0%;
   display: flex; /* Establece el contenedor externo como un contenedor flexible */
   justify-content: center; /* Centra horizontalmente el contenido */
   align-items: center; /* Centra verticalmente el contenido */
+  height: 100%;
+  width: 100%;
 }
 
 .seleccionado{
