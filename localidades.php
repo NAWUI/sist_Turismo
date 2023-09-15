@@ -66,7 +66,11 @@
 
         <section class="listaLayout">
         <div class="Lista">1</div>
-        <div class="Descripcion">2</div>
+        <div class="Descripcion">
+
+            <input type="text" id="nombreLocalidad" name="nombreLocaldiad">
+
+        </div>
         </section>
 
     
