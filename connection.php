@@ -8,9 +8,9 @@ $dbname = "sist_turismo"; // nombre de la base de datos a la que se conectará
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar si la conexión es exitosa
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-echo "Conexión exitosa";
+// if ($conn->connect_error) {
+//     die("Conexión fallida: " . $conn->connect_error);
+// }
+// echo "Conexión exitosa";
 
 ?>
