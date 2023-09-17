@@ -18,7 +18,7 @@
             <div class="Login">        
                 
                 <div class="custom-container-login">
-                    <h2>Login form</h2>
+                    <h2>Login</h2>
                     <br>
                     <form>
                         <div class="custom-form-group">
@@ -27,11 +27,11 @@
                         </div>
                         <div class="custom-form-group">
                             <label for="contraseña" class="custom-form-label">Contraseña</label>
-                            <input type="password" class="custom-form-control" id="contraseña" placeholder="Contraseña">
+                            <input type="password" class="custom-form-control" id="password" placeholder="Contraseña">
                         </div>
                         <br>
                         <div class="custom-btn-container"> <!-- Contenedor para el botón -->
-                            <button type="submit" class="custom-btn-primary">Enviar</button>
+                        <button type="button" id='enviar' class="custom-btn-primary">Enviar</button>
                         </div>
                     </form>
                 </div>
@@ -44,6 +44,11 @@
     
     
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="js/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="js/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="js/script.js"></script>
+<script src="js/login.js"></script>
+
 </html>
