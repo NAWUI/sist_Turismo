@@ -1,4 +1,3 @@
-
 <?php
     include("php/connection.php");
     
@@ -690,4 +689,3 @@
 <script src="js/script.js"></script>
 
 </html>
-
