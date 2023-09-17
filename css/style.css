@@ -67,7 +67,7 @@ body {
   
   .sidenav a {
     text-decoration: none;
-    display: block;
+    display: inline-block;
     transition: 0.3s;
     color: #481620 !important;
   }
@@ -118,6 +118,9 @@ body {
       }
     }
 
+    .sideButtonsBox{
+      width: 100%;
+    }
     .sideButtons{
       text-align: center;
       color: #481620 !important;
