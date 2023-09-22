@@ -86,8 +86,20 @@
             <input type="text" class="custom-form-control" id="division" placeholder="División">
         </div>
         <div class="custom-form-group">
-            <label for="cargaAlumnos" class="custom-form-label">Carga de alumnos</label>
-            <input type="text" class="custom-form-control" id="cargaAlumnos" placeholder="Carga de alumnos">
+            <label for="representante" class="custom-form-label">Representante (Alumno)</label>
+            <input type="text" class="custom-form-control" id="representante" placeholder="Carga de alumnos">
+        </div>
+        <div class="custom-form-group">
+            <label for="cargaAlumnos1" class="custom-form-label">Alumno 1</label>
+            <input type="text" class="custom-form-control" id="cargaAlumnos1" placeholder="Carga de alumnos">
+        </div>
+        <div class="custom-form-group">
+            <label for="cargaAlumnos2" class="custom-form-label">Alumno 2</label>
+            <input type="text" class="custom-form-control" id="cargaAlumnos2" placeholder="Carga de alumnos">
+        </div>
+        <div class="custom-form-group">
+            <label for="cargaAlumnos3" class="custom-form-label">Alumno 3</label>
+            <input type="text" class="custom-form-control" id="cargaAlumnos3" placeholder="Carga de alumnos">
         </div>
         <div class="custom-form-group">
             <label for="profesorReferente" class="custom-form-label">Profesor referente</label>
@@ -108,3 +120,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 </html>
+<!-- NOMBRE 
+Apellido
+CURSO 
+-->
+
+<!-- NOMBRE 
+Apellido
+telefono
+email -->

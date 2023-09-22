@@ -13,7 +13,7 @@ $cursos = filter_input(INPUT_POST, 'cursos', FILTER_SANITIZE_STRING);
 if (empty($nombre) || empty($apellido) || empty($localidad) || empty($telefono) || empty($correoAlumno) || empty($alumnoProfesor) || empty($representante) || empty($cursos)) {
     echo "Rellene todos los campos.";
 } else {
-    $correo_check_query = "SELECT id FROM alumnos WHERE email = ?";
+    $correo_check_query = "SELECT id FROM personas WHERE email = ?";
     $stmt = $conn->prepare($correo_check_query);
     $stmt->bind_param("s", $correoAlumno);
     $stmt->execute();
@@ -24,7 +24,7 @@ if (empty($nombre) || empty($apellido) || empty($localidad) || empty($telefono) 
     } else {
         // Aquí podrías realizar un hashing seguro para almacenar la contraseña del alumnoProfesor si es necesario
 
-        $insert_query = "INSERT INTO alumnos (`nombre`, `apellido`, `id_cursos`, `id_localidades`, `telefono`, `email`, `alumnoOProfesor`, `representante`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $insert_query = "INSERT INTO personas (`nombre`, `apellido`, `id_cursos`, `id_localidades`, `telefono`, `email`, `alumnoOProfesor`, `representante`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($insert_query);
         $stmt->bind_param("ssssssss", $nombre, $apellido, $cursos, $localidad, $telefono, $correoAlumno, $alumnoProfesor, $representante);
         

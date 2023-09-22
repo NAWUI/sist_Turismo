@@ -11,33 +11,26 @@
     <link rel="stylesheet" href="js/node_modules/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="js/node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
+
+<script>
+        $(document).ready(function(){
+            $("#almnyprof").change(function(){
+                var seleccion = $(this).val();
+                if (seleccion === "Alumno") {
+                    $("#formulario1").show();
+                    $("#formulario2").hide();
+                } else if (seleccion === "Profesor") {
+                    $("#formulario1").hide();
+                    $("#formulario2").show();
+                }
+            });
+        });
+    </script>
 <body>
            <!-- HEADER INICIO -->
            <?php 
                 include("header.php");
             ?>
-            <!-- HEADER QUE SE MUESTRA DE BASE 
-            <nav class="navbar navbar-light bg-customBlue" style="z-index: 1;">
-                <div class="container-fluid" id="menuToggle">
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-mdb-toggle="collapse"
-                        data-mdb-target="#navbarToggleExternalContent2"
-                        aria-controls="navbarToggleExternalContent1"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                        id="open"
-                    >
-                        <i class="fas fa-bars text-light"></i>
-                
-                </button>
-                 BOTON DE CERRAR SESION
-                    <a href="index.html"><button class="button-28" role="button">Cerrar Sesión</button></a>    
-                BOTON DE CERRAR SESION FIN
-                </div>
-            </nav>
-            HEADER QUE SE MUESTRA DE BASE FIN -->
     
             <!-- DIV DE OSCURIDAD -->
             <div id="oscuro" class="test" style="display: none;"></div>
@@ -78,6 +71,8 @@
                     <option value="2">Profesor</option>
                 </select>
         </div>
+
+        
         <div class="custom-form-group">
             <label for="nombre" class="custom-form-label">Nombre</label>
             <input type="text" class="custom-form-control" id="nombre" placeholder="Nombre">
@@ -101,8 +96,6 @@
                         ?>
                     <option value="1234">+ Añadir localidad</option>
             </select>
-            <!-- <label for="grupo" class="custom-form-label">Grupo</label> -->
-            <!-- <input type="text" class="custom-form-control" id="grupo" placeholder="Grupo"> -->
         </div>
         <div class="custom-form-group">
             <label for="telefono" class="custom-form-label">Número de teléfono</label>
@@ -118,7 +111,7 @@
             <option selected>Seleccione un curso</option> 
                         <?php 
                                 // include('connection.php');
-                                // $sql = "SELECT id.nombre FROM `alumnos` WHERE NOT cue = $escuela";
+                                // $sql = "SELECT id.nombre FROM `personas` WHERE NOT cue = $escuela";
                                 // $consulta = mysqli_query($conexion, $sql);
                                 // while ($vec = mysqli_fetch_row($consulta)) {
                                     
@@ -134,7 +127,7 @@
             <option selected>Seleccione un Representante</option> 
                         <?php 
                                 // include('connection.php');
-                                // $sql = "SELECT id.nombre FROM `alumnos` WHERE NOT cue = $escuela";
+                                // $sql = "SELECT id.nombre FROM `personas` WHERE NOT cue = $escuela";
                                 // $consulta = mysqli_query($conexion, $sql);
                                 // while ($vec = mysqli_fetch_row($consulta)) {
                                     

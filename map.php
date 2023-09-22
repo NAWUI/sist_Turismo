@@ -24,28 +24,6 @@
            <?php 
                 include("header.php");
             ?>
-            <!-- HEADER QUE SE MUESTRA DE BASE 
-            <nav class="navbar navbar-light bg-customBlue" style="z-index: 1;">
-                <div class="container-fluid" id="menuToggle">
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-mdb-toggle="collapse"
-                        data-mdb-target="#navbarToggleExternalContent2"
-                        aria-controls="navbarToggleExternalContent1"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                        id="open"
-                    >
-                        <i class="fas fa-bars text-light"></i>
-                
-                </button>
-                 BOTON DE CERRAR SESION
-                    <a href="index.html"><button class="button-28" role="button">Cerrar Sesión</button></a>    
-                BOTON DE CERRAR SESION FIN
-                </div>
-            </nav>
-            HEADER QUE SE MUESTRA DE BASE FIN -->
     
             <!-- DIV DE OSCURIDAD -->
             <div id="oscuro" class="test" style="display: none;"></div>
@@ -592,7 +570,7 @@
 
                 <?php while($row=mysqli_fetch_array($sql)){
                     ?>
-                    <option> <?php echo $row["nombreLocalidad"]; ?> </option>
+                    <option> <?php echo $row["nombreLocalidad"]; ?> hola </option>
                 <?php } ?>
 
                 </select> <br><br>
