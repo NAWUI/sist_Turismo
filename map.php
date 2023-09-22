@@ -588,8 +588,9 @@
            
 
             <div class="Descripcion" id="descripcion" name="descripcion" style="display:none;">
+            <br>
+            <br>
             <select id="select" name="select">
-
                 <?php while($row=mysqli_fetch_array($sql)){
                     ?>
                     <option> <?php echo $row["nombreLocalidad"]; ?> </option>
@@ -602,8 +603,9 @@
                 </div>
             </div>
 
-            <div class="Descripcion">
+            <div class="Descripcion" id="admin" name="admin" style="display:none;">
                 <div class="card">
+                    <br>
                     <div class="card-body">
                         <div class="container infoContenedor">
                             <div class="row">
