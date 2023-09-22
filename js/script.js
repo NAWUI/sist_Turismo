@@ -45,7 +45,7 @@ function closeNav() {
       });*/
 
       
-
+      /* Control de muestra de divs*/ 
           var standText1=stand.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
           if(standText1!=""){
             const desc1 = document.getElementById("admin");
@@ -66,8 +66,10 @@ function closeNav() {
               desc.style.display = "none";
             }
           }
+      /* fin control de muestra de divs*/
 
 
+    /* Asignacion de stands */
     var enviar=document.getElementById("enviar");
       console.log(enviar);
         enviar.addEventListener("click", () => {
@@ -97,7 +99,7 @@ function closeNav() {
             }
             });
           })
-
+     /* Fin asignacion de stands */
     
 
       
