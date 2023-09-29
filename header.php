@@ -1,4 +1,7 @@
+
 <div class="headerA">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
             <!-- HEADER QUE SE MUESTRA DE BASE -->
             <nav class="navbar navbar-light bg-customBlue" style="z-index: 1;">
                 <div class="container-fluid" id="menuToggle">
@@ -20,7 +23,9 @@
                 BOTON DE CERRAR SESION FIN-->
                 <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Usuario
+                <?php
+                session_start();
+                echo $_SESSION['nombre'];?>
                 </button>
                 <ul class="dropdown-menu" style="min-width: 3rem;">
                     <li><a class="dropdown-item" href="#">Salir</a></li>
@@ -49,7 +54,6 @@
 
                         <a class="sideButtons d-flex align-items-center" href="carga_grupo.php"><i class="bi bi-textarea-resize" style="margin-right: 1vw;"></i>Inscripción de Proyectos</a>
 
-                        <a class="sideButtons d-flex align-items-center" href="carga_almyprof.php"><i class="bi bi-person-circle" style="margin-right: 1vw;"></i>Carga de Personas</a>
                 </div>
             </div>
             <!-- SIDEBAR QUE APARECE FIN -->

@@ -14,55 +14,7 @@
                       <?php 
                 include("header.php");
             ?>
-            <!-- HEADER QUE SE MUESTRA DE BASE 
-            <nav class="navbar navbar-light bg-customBlue" style="z-index: 1;">
-                <div class="container-fluid" id="menuToggle">
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-mdb-toggle="collapse"
-                        data-mdb-target="#navbarToggleExternalContent2"
-                        aria-controls="navbarToggleExternalContent1"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                        id="open"
-                    >
-                        <i class="fas fa-bars text-light"></i>
-                
-                </button>
-                 BOTON DE CERRAR SESION
-                    <a href="index.html"><button class="button-28" role="button">Cerrar Sesión</button></a>    
-                BOTON DE CERRAR SESION FIN
-                </div>
-            </nav>
-            HEADER QUE SE MUESTRA DE BASE FIN -->
-    
-            <!-- DIV DE OSCURIDAD -->
-            <div id="oscuro" class="test" style="display: none;"></div>
-            <!-- DIV DE OSCURIDAD  FIN-->
-    
-            <!-- SIDEBAR QUE APARECE -->
-            <div id="mySidenav" class="sidenav" style="z-index: 3;">
-                <div class="sidenav-content" id="sidenavContent">
-                    <a class="closebtn" id="close">&times;</a>
-                    <h1 class="sidenav-title">Sistema de Jornadas Turísticas</h1>
-                    <br>                    
-                    <div class="sideButtonsContainer">
-                        <a class="sideButtons " href="map.php">Mapa</a>
-
-                        <a class="sideButtons " href="registro.php">Registro</a>
-
-                        <a class="sideButtons " href="localidades.php">Lista de localidades</a>
-
-                        <a class="sideButtons " href="carga_grupo.php">Inscripción de Proyectos</a>
-
-                        <a class="sideButtons " href="carga_almyprof.php">Carga de Alumnos y Profesores</a>
-                    </div>
-                </div>
-            </div>
-            <!-- SIDEBAR QUE APARECE FIN -->
-    
-        </div>
+            
         <!-- HEADER FIN -->
 
 
@@ -78,54 +30,74 @@
             <input type="text" class="custom-form-control" id="localidad" placeholder="Localidad asignada">
         </div>
         <div class="custom-form-group">
-            <label for="profesor" class="custom-form-label">Profesor a cargo</label>
-            <input type="text" class="custom-form-control" id="profesor" placeholder="Profesor a cargo">
-        </div>
-        <div class="custom-form-group">
             <label for="division" class="custom-form-label">División</label>
             <input type="text" class="custom-form-control" id="division" placeholder="División">
         </div>
+        <!-- Buttons to open modals for Students, Representante, and Professor -->
         <div class="custom-form-group">
             <label for="representante" class="custom-form-label">Representante (Alumno)</label>
-            <input type="text" class="custom-form-control" id="representante" placeholder="Carga de alumnos">
-        </div>
+            <input type="text" class="custom-form-control" id="nombreALR" placeholder="Nombre">
+            <input type="text" class="custom-form-control" id="apellidoALR" placeholder="Apellido">
+            <input type="text" class="custom-form-control" id="cursoALR" placeholder="Curso">
+          </div>
         <div class="custom-form-group">
             <label for="cargaAlumnos1" class="custom-form-label">Alumno 1</label>
-            <input type="text" class="custom-form-control" id="cargaAlumnos1" placeholder="Carga de alumnos">
-        </div>
+            <input type="text" class="custom-form-control" id="nombreAL1" placeholder="Nombre">
+            <input type="text" class="custom-form-control" id="apellidoAL1" placeholder="Apellido">
+            <input type="text" class="custom-form-control" id="cursoAL1" placeholder="Curso">
+          </div>
         <div class="custom-form-group">
             <label for="cargaAlumnos2" class="custom-form-label">Alumno 2</label>
-            <input type="text" class="custom-form-control" id="cargaAlumnos2" placeholder="Carga de alumnos">
-        </div>
+            <input type="text" class="custom-form-control" id="nombreAL2" placeholder="Nombre">
+            <input type="text" class="custom-form-control" id="apellidoAL2" placeholder="Apellido">
+            <input type="text" class="custom-form-control" id="cursoAL2" placeholder="Curso">
+          </div>
         <div class="custom-form-group">
             <label for="cargaAlumnos3" class="custom-form-label">Alumno 3</label>
-            <input type="text" class="custom-form-control" id="cargaAlumnos3" placeholder="Carga de alumnos">
-        </div>
+            <input type="text" class="custom-form-control" id="nombreAL3" placeholder="Nombre">
+            <input type="text" class="custom-form-control" id="apellidoAL3" placeholder="Apellido">
+            <input type="text" class="custom-form-control" id="cursoAL3" placeholder="Curso">
+          </div>
         <div class="custom-form-group">
             <label for="profesorReferente" class="custom-form-label">Profesor referente</label>
-            <input type="text" class="custom-form-control" id="profesorReferente" placeholder="Profesor referente">
+            <input type="text" class="custom-form-control" id="nombrePR" placeholder="Nombre">
+            <input type="text" class="custom-form-control" id="apellidoPR" placeholder="Apellido">
+            <input type="text" class="custom-form-control" id="emailPR" placeholder="Email">
+            <input type="tel" class="custom-form-control" id="telefonoPR" placeholder="Telefono" pattern="[0-9]{10}" required>
         </div>
+
         <div class="custom-form-group">
             <label for="evaluadores" class="custom-form-label">Evaluadores a cargo</label>
-            <input type="text" class="custom-form-control" id="evaluadores" placeholder="Evaluadores a cargo">
+            <select class="custom-form-control" name="evaluadores" id="evaluadores" aria-label="Default select example">
+                                <option value="">Seleccione un Evaluador</option>
+                                <?php
+                                include('connection.php');
+                                $sql = "SELECT nombre, id FROM usuarios";
+                                $consulta = mysqli_query($conn, $sql);
+                                while ($vec = mysqli_fetch_row($consulta)) {
+                                    $usuario="$vec[0]";
+                                    $id_usuarios = "$vec[1]";
+                                    echo "<option value='$id_usuarios'>$usuario</option>";
+                                }
+                                ?>
+                            </select>
         </div>
         <br>
         <div class="custom-btn-container"> <!-- Contenedor para el botón -->
-                <button type="submit" class="custom-btn-primary">Enviar</button>
+                <button type="button" id="Enviar" class="custom-btn-primary">Enviar</button>
         </div>
     </form>
 </div>
-    
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="js/script.js"></script>
-</html>
-<!-- NOMBRE 
-Apellido
-CURSO 
--->
 
-<!-- NOMBRE 
-Apellido
-telefono
-email -->
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="js/script.js"></script>
+<script src="js/carga_grupo.js"></script>
+
+
+</html>
