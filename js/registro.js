@@ -26,7 +26,7 @@ $(document).ready(function(){
                         showConfirmButton: false,
                         timer: 1500
                       }).then(function(){
-                         window.location = "carga_almyprof.php";
+                         window.location = "carga_grupo.php";
                         })    
                 }else if((data) == "El correo electrónico ya está asociado a otro usuario"){
                     Swal.fire({

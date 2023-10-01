@@ -31,7 +31,6 @@
                     <li><a class="dropdown-item" href="#">Salir</a></li>
                 </ul>
                 </div>
-    
                 </div>
             </nav>
             <!-- HEADER QUE SE MUESTRA DE BASE FIN -->
