@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2023 a las 19:33:34
+-- Tiempo de generación: 02-10-2023 a las 20:07:23
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -90,15 +90,9 @@ CREATE TABLE `localidades` (
   `numeromesa` varchar(11) NOT NULL,
   `nombreLocalidad` varchar(50) NOT NULL,
   `profesorACargo` varchar(50) NOT NULL,
-  `cursos` varchar(200) NOT NULL
+  `cursos` varchar(200) NOT NULL,
+  `id_evaluador` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `localidades`
---
-
-INSERT INTO `localidades` (`id`, `numeromesa`, `nombreLocalidad`, `profesorACargo`, `cursos`) VALUES
-(6, 'No definido', 'nombrelocalidaprueba', 'vjg vjgvj', 'dvfsfd');
 
 -- --------------------------------------------------------
 
@@ -132,17 +126,6 @@ CREATE TABLE `personas` (
   `representante` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Volcado de datos para la tabla `personas`
---
-
-INSERT INTO `personas` (`id`, `nombre`, `apellido`, `cursos`, `telefono`, `email`, `alumnoOProfesor`, `representante`) VALUES
-(1, 'rpprueba', 'apelipr', 'dvfsfd', 0, '', 0, 1),
-(2, 'fdhbhsdb', 'cvugc', 'gvjgv', 0, '', 0, 0),
-(3, 'gjvjgvgv', 'vjgvjvj', 'j', 0, '', 0, 0),
-(4, 'vjgvgjvj', 'gvjgv', 'jg', 0, '', 0, 0),
-(5, 'vjg', 'vjgvj', '', 0, 'gvgjvjgv', 1, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -161,16 +144,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `contrasenia`, `correo`) VALUES
-(1, 'fghfg', '1234', 'nahuelgimenez404@gmail.com'),
-(2, 'maria', '1234', 'maria@gmail.com'),
-(3, 'Juanl', '1234', 'juan@gmail.com'),
-(4, 'hdghdfhd', '1234', 'hjgjg@gmail.com'),
-(5, 'Juanl', '1234', 'juan2@gmail.com'),
-(6, 'fgfdgd', '1234', 'gsseg@gmail.com'),
-(7, 'Nahuel', '1234', 'nahuelgimenez303@gmail.com'),
-(8, 'Lautrophine', '1234', 'laurizzo556@gmail.com'),
-(9, 'nahuelphone', '1233', 'nahuelgimenez504@gmail.com'),
-(10, 'rama', '1234', 'rama@gmail.com');
+(1, 'Admin', '0', 'admin@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -262,7 +236,7 @@ ALTER TABLE `evaluaciones`
 -- AUTO_INCREMENT de la tabla `localidades`
 --
 ALTER TABLE `localidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `microemprendimientos`
@@ -274,13 +248,13 @@ ALTER TABLE `microemprendimientos`
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
