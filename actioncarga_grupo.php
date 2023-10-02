@@ -55,11 +55,11 @@ if (
     $insert_queryPR = "INSERT INTO personas (`nombre`, `apellido`, `telefono`, `email`, `alumnoOProfesor`) VALUES ('$nombrePR', '$apellidoPR', '$telefonoPR', '$emailPR', 1)";
     $resultPR = mysqli_query($conn, $insert_queryPR);
 
-    $insert_queryLOC = "INSERT INTO `localidades`(`numeromesa`, `nombreLocalidad`, `profesorACargo`, `cursos`) VALUES ('No definido','$localidad','$nombreCompleto','$cursoALR')";
+    $insert_queryLOC = "INSERT INTO `localidades`(`numeromesa`, `nombreLocalidad`, `profesorACargo`, `cursos`, `id_evaluador`) VALUES ('No definido','$localidad','$nombreCompleto','$cursoALR', '$evaluadores')";
     $resultLOC = mysqli_query($conn, $insert_queryLOC);
 
     if ($resultALR && $resultAL1 && $resultAL2 && $resultAL3 && $resultPR && $resultLOC) {
-        echo "Carga de Proyecto Correcta";
+        echo "Carga de Proyecto Correcta.";
     } else {
         echo "Error en la inserción de datos: " . mysqli_error($conn);
     }

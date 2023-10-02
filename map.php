@@ -682,7 +682,7 @@
             //Envio de comentarios por medio de ajax
             $('#btn-coment').click(function (){
                 let comentario = $("#comentTextbox").val();
-                let usu = <?php echo $id_usr  ?>;
+                let usu = <?php echo $id_usr ?>;
                 let localidad = <?php echo $id_loc ?>;
 
 

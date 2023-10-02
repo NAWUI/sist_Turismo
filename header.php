@@ -24,11 +24,10 @@
                 <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <?php
-                session_start();
                 echo $_SESSION['nombre'];?>
                 </button>
                 <ul class="dropdown-menu" style="min-width: 3rem;">
-                    <li><a class="dropdown-item" href="#">Salir</a></li>
+                    <li><a class="dropdown-item" href="logout.php">Salir</a></li>
                 </ul>
                 </div>
                 </div>

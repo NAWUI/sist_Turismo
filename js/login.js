@@ -23,7 +23,7 @@ $(document).ready(function () {
             showConfirmButton: false,
             timer: 1500,
           }).then(function () {
-            window.location = "session.php";
+            window.location = "session_login.php";
           });
         } else if (data === "Nombre o Contraseña incorrecta") {
           Swal.fire({
