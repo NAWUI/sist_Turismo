@@ -36,9 +36,10 @@
                 <table class="table">
                     <thead>
                         <tr>
+                        <th scope="col">Numero de Mesa</th>
                         <th scope="col">Localidad</th>
                         <th scope="col">Alumnos</th>
-                        <th scope="col">Profesor</th>
+                        <th scope="col">Profesor a cargo</th>
                         <th scope="col">Administrador</th>
                         </tr>
                     </thead>
