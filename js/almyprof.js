@@ -43,7 +43,7 @@ $(document).jquery(function () {
             icon: "error",
             title: data,
             showConfirmButton: false,
-            timer: 1500,
+            timer: 100,
           });
         } else if (
           data == "El correo electrónico del alumno ya está registrado."
