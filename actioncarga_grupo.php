@@ -35,28 +35,34 @@ if (
 } else {
     // Las variables de cadena deben rodearse de comillas simples en las consultas SQL
 
+    $insert_queryLOC = "INSERT INTO `localidades`(`numeromesa`, `nombreLocalidad`, `profesorACargo`, `cursos`, `id_evaluador`) VALUES ('No definido','$localidad','$nombreCompleto','$cursoALR', '$evaluadores')";
+    $resultLOC = mysqli_query($conn, $insert_queryLOC);
+
+    $sql = "SELECT id FROM localidades where nombreLocalidad = '$localidad' AND profesorACargo = '$nombreCompleto'";
+    $consulta = mysqli_query($conn, $sql);
+    $vec = mysqli_fetch_row($consulta);
+    $id_localidad = "$vec[0]";
     // Insertar datos de ALR
-    $insert_queryALR = "INSERT INTO personas (`nombre`, `apellido`, `cursos`, `alumnoOProfesor`, `representante`) VALUES ('$nombreALR', '$apellidoALR', '$cursoALR', 0, 1)";
+    $insert_queryALR = "INSERT INTO personas (`id_localidad`,`nombre`, `apellido`, `cursos`, `alumnoOProfesor`, `representante`) VALUES ('$id_localidad','$nombreALR', '$apellidoALR', '$cursoALR', 0, 1)";
     $resultALR = mysqli_query($conn, $insert_queryALR);
 
     // Insertar datos de AL1
-    $insert_queryAL1 = "INSERT INTO personas (`nombre`, `apellido`, `cursos`, `alumnoOProfesor`, `representante`) VALUES ('$nombreAL1', '$apellidoAL1', '$cursoAL1', 0, 0)";
+    $insert_queryAL1 = "INSERT INTO personas (`id_localidad`,`nombre`, `apellido`, `cursos`, `alumnoOProfesor`, `representante`) VALUES ('$id_localidad','$nombreAL1', '$apellidoAL1', '$cursoAL1', 0, 0)";
     $resultAL1 = mysqli_query($conn, $insert_queryAL1);
 
     // Insertar datos de AL2
-    $insert_queryAL2 = "INSERT INTO personas (`nombre`, `apellido`, `cursos`, `alumnoOProfesor`, `representante`) VALUES ('$nombreAL2', '$apellidoAL2', '$cursoAL2', 0, 0)";
+    $insert_queryAL2 = "INSERT INTO personas (`id_localidad`,`nombre`, `apellido`, `cursos`, `alumnoOProfesor`, `representante`) VALUES ('$id_localidad','$nombreAL2', '$apellidoAL2', '$cursoAL2', 0, 0)";
     $resultAL2 = mysqli_query($conn, $insert_queryAL2);
 
     // Insertar datos de AL3
-    $insert_queryAL3 = "INSERT INTO personas (`nombre`, `apellido`, `cursos`, `alumnoOProfesor`, `representante`) VALUES ('$nombreAL3', '$apellidoAL3', '$cursoAL3', 0, 0)";
+    $insert_queryAL3 = "INSERT INTO personas (`id_localidad`,`nombre`, `apellido`, `cursos`, `alumnoOProfesor`, `representante`) VALUES ('$id_localidad','$nombreAL3', '$apellidoAL3', '$cursoAL3', 0, 0)";
     $resultAL3 = mysqli_query($conn, $insert_queryAL3);
 
     // Insertar datos de PR
-    $insert_queryPR = "INSERT INTO personas (`nombre`, `apellido`, `telefono`, `email`, `alumnoOProfesor`) VALUES ('$nombrePR', '$apellidoPR', '$telefonoPR', '$emailPR', 1)";
+    $insert_queryPR = "INSERT INTO personas (`id_localidad`,`nombre`, `apellido`, `telefono`, `email`, `alumnoOProfesor`) VALUES ('$id_localidad','$nombrePR', '$apellidoPR', '$telefonoPR', '$emailPR', 1)";
     $resultPR = mysqli_query($conn, $insert_queryPR);
 
-    $insert_queryLOC = "INSERT INTO `localidades`(`numeromesa`, `nombreLocalidad`, `profesorACargo`, `cursos`, `id_evaluador`) VALUES ('No definido','$localidad','$nombreCompleto','$cursoALR', '$evaluadores')";
-    $resultLOC = mysqli_query($conn, $insert_queryLOC);
+
 
     if ($resultALR && $resultAL1 && $resultAL2 && $resultAL3 && $resultPR && $resultLOC) {
         echo "Carga de Proyecto Correcta.";

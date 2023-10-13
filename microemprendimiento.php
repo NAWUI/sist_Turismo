@@ -1,6 +1,8 @@
 <?php
+include('connection.php');
 include('session.php');
-
+$idStand = $_POST['idStand'];
+echo $idStand;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +12,10 @@ include('session.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Jornadas Turísticas</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="plugin\bootstrap.min.css">
+    <link rel="stylesheet" href="plugin\all.min.css">
 </head>
 <body>
             <!-- HEADER INICIO -->
@@ -22,8 +26,8 @@ include('session.php');
 
 
         <div class="custom-container">
-    <h2>Formulario de Carga de Grupo</h2>
-    <form id="myform" action="microemprendimiento.php"  method="POST">
+    <h2>Formulario de Microemprendimiento</h2>
+    <form id="myform" method="POST">
         <div class="custom-form-group">
             <label for="titulo" class="custom-form-label">Titulo del microemprendimiento</label>
             <input type="text" class="custom-form-control" id="titulo" placeholder="Titulo del microemprendimiento">
@@ -50,14 +54,65 @@ include('session.php');
     
         <br>
         <div class="custom-btn-container"> <!-- Contenedor para el botón -->
-                <button type="submit" class="custom-btn-primary">Enviar</button>
+                <button type="submit" id="micro" class="custom-btn-primary">Enviar</button>
         </div>
     </form>
     
 </div>
     
 </body>
+<script src="plugin\jquery.min.js"></script>
+
+<script src="js/node_modules/jquery/dist/jquery.min.js"></script>
+<!-- <script src="js/node_modules/sweetalert2/dist/sweetalert2.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="js/microemprendimiento.js"></script>
+<!-- <script src="js/microemprendimiento.js"></script> -->
 <script src="js/script.js"></script>
+<script>
+    $(document).ready(function () {
+  $("#calificacion").keypress(function (event) {
+    if (event.which === 13) {
+      $("#micro").click();
+    }
+  });
+
+  $("#micro").click(function () {
+    var calificacion = $("#calificacion").val();
+    var descripcion = $("#descripcion").val();
+    var titulo = $("#titulo").val();
+    var stand = <?php echo json_encode($id_stand) ?>;
+
+    $.ajax({
+      method: "POST",
+      url: "microemprendimiento_action.php",
+      data: {
+        calificacion: calificacion,
+        descripcion: descripcion,
+        titulo: titulo,
+        stand: stand,
+      },
+      success: function (data) {
+        if (data === "Carga de Microemprendimietno Correcta.") {
+          Swal.fire({
+            icon: "success",
+            title: data,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else if (data === "Rellene todos los campos.") {
+          Swal.fire({
+            icon: "error",
+            title: data,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        };
+      }
+    });
+  });
+});
+
+
+</script>
 </html>

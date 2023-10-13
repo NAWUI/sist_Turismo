@@ -79,6 +79,8 @@ function closeNav() {
                 console.log('AJAX Error:', error);
             }
             });
+
+            
             var texto=document.getElementById("select");
           var selectedL=texto.options[texto.selectedIndex].text;
           var standText=stand.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();

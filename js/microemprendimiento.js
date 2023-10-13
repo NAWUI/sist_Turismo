@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("myForm");
+    const form = document.getElementById("myform");
 
     form.addEventListener("submit", function (e) {
         e.preventDefault(); // Evita el envío predeterminado del formulario
@@ -14,14 +14,27 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert("Los datos se han guardado correctamente.");
+                Swal.fire({
+                    icon: "success",
+                    title: "Los datos se han guardado correctamente.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                }).then(function(){
+                    window.location = "map.php";
+                   })
+
                 // Aquí puedes redirigir o realizar otras acciones después de guardar los datos.
             } else {
-                alert("Hubo un error al guardar los datos.");
+                Swal.fire({
+                    icon: "error",
+                    title: "Hubo un error al guardar los datos.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
             }
         })
-        .catch(error => {
-            console.error("Error al enviar la solicitud:", error);
+        .catch((error) => {
+            console.error(error);
         });
     });
 });

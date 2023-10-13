@@ -1,6 +1,6 @@
 
 <div class="headerA">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
             <!-- HEADER QUE SE MUESTRA DE BASE -->
             <nav class="navbar navbar-light bg-customBlue" style="z-index: 1;">

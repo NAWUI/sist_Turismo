@@ -1,25 +1,46 @@
+
 <?php
 include("connection.php");
-// Recibir los datos del formulario
-$titulo = $_POST["titulo"];
-$descripcion = $_POST["descripcion"];
+include("session.php");
+
+$idStand = $_POST["idStand"];
+
+
+
 $calificacion = $_POST["calificacion"];
-$evaluador = $_POST[""];
-$localidades = $_POST[""];
+$descripcion = $_POST["descripcion"];
+$titulo = $_POST["titulo"];
+$stand = $_POST["stand"];
+echo $stand;
+$sqlStand="SELECT * FROM localidades WHERE numeromesa='$stand'";
+$resultStand=mysqli_query($conn,$sqlStand);
+if($resultStand){
+    $arrayStand=mysqli_fetch_array($resultStand);
+    if($arrayStand!=null){
+        $localidades = $arrayStand["id"];
+    }
+}
 
+$evaluador = $id_usr;
 
-// Insertar los datos en la base de datos
-$sql = "INSERT INTO `microemprendimientos`(`Titulo`, `Descripcion`, `localidades`, `evaluador`, `calificacion`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')";
-
-if ($conn->query($sql) === TRUE) {
-    $response = array("success" => true);
+if (
+    empty($calificacion) || empty($localidades) || 
+    empty($titulo) || empty($descripcion)
+) {
+    echo "Rellene todos los campos.";
 } else {
-    $response = array("success" => false, "error" => $conn->error);
+    // Las variables de cadena deben rodearse de comillas simples en las consultas SQL
+
+    // Insertar datos de ALR
+    $insert_queryMCE = "INSERT INTO `microemprendimientos`(`Titulo`, `Descripcion`, `id_localidades`, `id_evaluador`, `calificacion`) VALUES ('$titulo','$descripcion,'$localidades','$evaluador,'$calificacion')";
+    $resultMCE = mysqli_query($conn, $insert_queryMCE);
+
+    if ($resultMCE) {
+        echo "Carga de Microemprendimietno Correcta.";
+    } else {
+        echo "Error en la inserción de datos: " . mysqli_error($conn);
+    }
 }
 
 $conn->close();
-
-// Devolver una respuesta en formato JSON
-header("Content-type: application/json");
-echo json_encode($response);
 ?>
