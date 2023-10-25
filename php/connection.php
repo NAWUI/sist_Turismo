@@ -1,5 +1,5 @@
 <?php
 
-    $con=mysqli_connect("localhost", "root","", "sist_turismo");
+    $con=mysqli_connect("localhost", "root","", "sist_turismo1");
 
 ?>

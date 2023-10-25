@@ -16,7 +16,7 @@
                 
                 </button>
                 <!-- BOTON DE CERRAR SESION -->
-                    <a href="index.html"><button class="button-28" role="button">Cerrar Sesión</button></a>    
+                    <a href="logout.php"><button class="button-28" role="button">Cerrar Sesión</button></a>    
                 <!-- BOTON DE CERRAR SESION FIN-->
                 </div>
             </nav>

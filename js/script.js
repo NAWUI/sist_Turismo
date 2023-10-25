@@ -47,25 +47,32 @@ function closeNav() {
       
       /* Control de muestra de divs*/ 
           var standText1=stand.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
-          if(standText1!=""){
-            const desc1 = document.getElementById("admin");
-            const computedStyle = window.getComputedStyle(desc1);
+          if(standText1 ==""){
+            let desc1 = document.getElementById("descripcion");
+            let computedStyle1 = window.getComputedStyle(desc1);
+            let desc = document.getElementById("admin");
+            let computedStyle = window.getComputedStyle(desc);
           
-            if (computedStyle.display == "none") {
+            if (computedStyle1.display == "none") {
               desc1.style.display = "block";
+              
+              if (computedStyle.display == "block") {
+                desc.style.display = "none";
+              }
+
             } else {
-              desc1.style.display = "none";
-            }
+              if (computedStyle1.display == "block") {
+                desc.style.display = "none";
+              }
+            } 
           }else{
-          const desc = document.getElementById("descripcion");
-          const computedStyle = window.getComputedStyle(desc);
-          
+            let desc = document.getElementById("admin");
+            let computedStyle = window.getComputedStyle(desc);
             if (computedStyle.display == "none") {
               desc.style.display = "block";
-            } else {
-              desc.style.display = "none";
-            }
           }
+        }
+          
       /* fin control de muestra de divs*/
 
 
@@ -106,7 +113,14 @@ function closeNav() {
       })
     });
     })
+    //Funcion que toma la id de los div stand
+    /*function getId(clicked_id){
+          let idStand = clicked_id;
+          console.log(idStand);
+    };*/
     
+
+
         
     
 
