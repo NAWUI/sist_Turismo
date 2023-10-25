@@ -41,7 +41,7 @@ include("session.php");
                             <div class="standHorINVISIBLE"></div>
                         </div>
                         <div class="col standAjusteH">
-                            <div class="standHor standid" onClick="getId(this.id)" id="stand1" name="stand1" data-url="php/localidades_mapa.php" data-target="stand">
+                            <div class="standHor standid" onClick="getId(this.id)" id="stand1" name="stand1" data-url="php/localidades_mapa.php" data-target="stand" data-id="1">
                             <?php
                             $sqlStand = "SELECT * FROM localidades WHERE numeromesa='stand1'";
                             $resultStand = mysqli_query($conn, $sqlStand);
@@ -563,7 +563,7 @@ include("session.php");
                                                 <option value="">Seleccione una localidad</option>
                                 <?php
                                                 include('connection.php');
-                                                $sql = "SELECT nombreLocalidad, id FROM localidades WHERE numeromesa = 'no definido' AND id_evaluador = '$id_usr'";
+                                                $sql = "SELECT nombreLocalidad, id FROM localidades WHERE numeromesa = 'no definido'";
                                                 $consulta = mysqli_query($conn, $sql);
                                                 while ($vec = mysqli_fetch_row($consulta)) {
                                                     $nombrelocalidad = "$vec[0]";
@@ -573,6 +573,7 @@ include("session.php");
                                                 ?>
                                             </select>
                                             </div>
+                                            <button id='' type="button" class="custom-form-control">Guardar Localidad</button>
                                         </div>
                                         <h5>Integrantes del grupo</h5>
                                     </div>
@@ -588,7 +589,7 @@ include("session.php");
                                 <div class="col-md-3"></div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <h3>Num de mesa ()</h3>
+                                        <h3 id='numMesa'>Num de mesa ()</h3>
                                     </div>
                                     <div class="mb-3">
                                         <a href="microemprendimiento.php">
@@ -834,5 +835,6 @@ include("session.php");
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
+<script src="js/guardarlocalida.js"></script>
 
 </html>
