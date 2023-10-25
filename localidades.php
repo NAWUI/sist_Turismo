@@ -3,10 +3,6 @@
     include("php/connection.php");
     include('session.php');
 
-    $sqlLoc="SELECT * FROM localidades WHERE 1";
-    
-    $queryLoc=mysqli_query($con,$sqlLoc);
-
 ?>
 
 <!DOCTYPE html>
@@ -30,48 +26,82 @@
         <br>    
         <br>
 
-        <section class="listaLayout">
-                <div class="Descripcion">
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">Numero de Mesa</th>
-                        <th scope="col">Localidad</th>
-                        <th scope="col">Alumnos</th>
-                        <th scope="col">Profesor a cargo</th>
-                        <th scope="col">Administrador</th>
-                        </tr>
-                    </thead>
-                    <?php while($arrayLoc=mysqli_fetch_array($queryLoc)){ 
-                        
-                        $sqlAlum="SELECT * FROM alumnos WHERE id_localidades='".$arrayLoc["id"]."'";
-                        $queryAlum=mysqli_query($con,$sqlAlum);
-                        
-
-                        $sqlUs="SELECT * FROM usuarios WHERE id_localidades='".$arrayLoc["id"]."'";
-                        $queryUs=mysqli_query($con,$sqlUs);
-
-                        ?>
-                    <tbody>
-                        <tr>
-                        <td><?php echo $arrayLoc["nombreLocalidad"] ?></td>
-                        <td><?php/* while($arrayAlum=mysqli_fetch_array($queryAlum)){ echo "-".$arrayAlum["nombre"]."<br>"; }*/ ?></td>
-                        <td><?php echo $arrayLoc["profesorACargo"] ?></td>
-                        <td><?php /*while($arrayUs=mysqli_fetch_array($queryUs)){ echo "-".$arrayUs["nombre"]."<br>"; } */?></td>
-                        </tr>
-                    </tbody>
-
-                <?php } ?>
-
-                </table>
-
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <input type="text" class="form-control rounded" id="busqueda" placeholder="Buscar...">   
             </div>
-        </section>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-12"> 
+                <table class="table" id="tabla">
+                <thead>
+                <tr>
+                    <th scope="col">Número de Mesa</th>
+                    <th scope="col">Localidad</th>
+                    <th scope="col">Alumnos</th>
+                    <th scope="col">Profesor a Cargo</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">Evaluador</th>
+                </tr>
+                </thead>
+                    <tbody>
+                        <?php
+
+                            // Realiza la consulta para obtener los datos de la tabla localidades
+                            $query = "SELECT * FROM localidades";
+                            $result = mysqli_query($conn, $query);
+
+                            // Itera a través de los registros de localidades
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<tr>";
+                                echo "<td>" . $row['numeromesa'] . "</td>";
+                                echo "<td>" . $row['nombreLocalidad'] . "</td>";
+
+                                // Realiza una nueva consulta para obtener los alumnos del curso de la localidad
+                                $curso = $row['cursos'];
+                                $alumnos_query = "SELECT nombre FROM personas WHERE cursos = '$curso'";
+                                $alumnos_result = mysqli_query($conn, $alumnos_query);
+
+                                // Almacena los nombres de los alumnos en un array
+                                $alumnos = array();
+                                while ($alumno = mysqli_fetch_assoc($alumnos_result)) {
+                                    $alumnos[] = $alumno['nombre'];
+                                }
+
+                                // Imprime la lista de alumnos en un único campo
+                                echo "<td>" . implode(", ", $alumnos) . "</td>";
+
+                                echo "<td>" . $row['profesorACargo'] . "</td>";
+                                echo "<td>" . $row['cursos'] . "</td>";
+                                echo "<td>" . $row['id_evaluador'] . "</td>";
+                                echo "</tr>";
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        </div>
 
     
     
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Captura el evento de escritura en el campo de búsqueda
+    $("#busqueda").on("input", function() {
+        var valorBusqueda = $(this).val().toLowerCase(); // Valor de búsqueda en minúsculas
+        $("#tabla tbody tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(valorBusqueda) > -1);
+        });
+    });
+});
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 </html>
