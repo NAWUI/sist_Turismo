@@ -5,7 +5,7 @@
     if(isset($_POST["stand"])){$stand=$_POST["stand"];
     echo $stand;
     }
-    $query="SELECT * FROM localidades WHERE 1";
+    $query="SELECT * FROM localidades WHERE numeromesa = 0";
     $sql=mysqli_query($con,$query);
 
 
