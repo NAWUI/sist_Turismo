@@ -34,6 +34,7 @@ include("session.php");
                                     <div class="mb-3">
                                         <h3>Localidad:</h3>
                                         <div class="custom-form-group">
+                                            <div class='d-flex justify-content-between align-items-center'>
                                             <select class="custom-form-control" name="evaluadores" id="evaluadores" aria-label="Default select example">
                                                 <option value="">Seleccione una localidad</option>
                                 <?php
@@ -47,6 +48,7 @@ include("session.php");
                                                 }
                                                 ?>
                                             </select>
+                                            </div>
                                         </div>
                                         <h5>Integrantes del grupo</h5>
                                     </div>
@@ -77,7 +79,7 @@ include("session.php");
                                 <div class="col-md-3"></div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <h3>Num de mesa</h3>
+                                        <h3>Num de mesa ()</h3>
                                     </div>
                                     <div class="mb-3">
                                         <a href="microemprendimiento.php">
@@ -90,28 +92,142 @@ include("session.php");
                                 </div>
                             </div>
                         </div>
+                        <style>
+                            .smaller-select {
+    width: 3rem; /* Suficiente para acomodar dos dígitos */
+}
+
+                        </style>
                         <div class="container notasContenedor mt-4">
-                            <div class="row">
-                                <div class="col">
-                                    <h3>Num de mesa</h3> 
-                                        <select>
-                                            <?php
-                                            $queryNumero = "SELECT * FROM localidades WHERE 1";
-                                            $sqlNumero = mysqli_query($conn, $queryNumero);
-                                            while ($rowNumero = mysqli_fetch_array($sqlNumero)) { ?>
-                                                                    <option> <?php echo $rowNumero["numeromesa"] ?> </option>
-                                            <?php } ?>
-                                        </select>
-                                    <h5>Informe</h5>
-                                    <h5>Carpeta de campo</h5>
-                                    <h5>Souvenir</h5>
-                                    <h5>Fotos</h5>
-                                    <h5>Laminas</h5>
-                                    <h5>Power Point</h5>
-                                    <h5>Folleteria</h5>
-                                    <h5>Productos regionales</h5>
-                                </div>
-                            </div>
+                            
+                        <div class="row">
+    <div class="col-sm">
+        <div class="d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Informe</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores1" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Carpeta de campo</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores2" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Souvenir</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores3" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Fotos</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores4" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Laminas</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores5" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Power Point</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores6" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Folleteria</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores7" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Productos regionales</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores8" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+
                             <div class="row">
                                 <div class="col">
                                     <h3>Observaciones</h3>

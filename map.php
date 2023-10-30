@@ -22,7 +22,17 @@ include("session.php");
            
         <!-- HEADER FIN -->
 
+<style>
+    /* Agrega estas clases CSS a tu archivo de estilos para definir los estilos seleccionados y deseleccionados */
+.selected-stand {
+    background-color: green;
+}
 
+.deselected-stand {
+    background-color: initial; /* O el color de fondo original de los stands */
+}
+
+</style>
         <section class="mapaLayout">
             <div class="Mapa mapContainer">
                 <div class="container mapConteinerConteiner">
@@ -534,11 +544,11 @@ include("session.php");
             </div>
 
 
-           
+
 
             
 
-            <div class="Descripcion" id="admin" name="admin" style="display:none;">
+            <div class="Descripcion" id="admin" name="admin">
                 <div class="card">
                     <br>
                     <div class="card-body">
@@ -546,17 +556,24 @@ include("session.php");
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="mb-3">
-                                        <select id="select" name="select">
-                                            <?php
-                                            $queryNombre = "SELECT * FROM localidades WHERE 1";
-                                            $sqlNombre = mysqli_query($conn, $queryNombre);
-                                            while ($rowNombre = mysqli_fetch_array($sqlNombre)) { ?>
-                                                    <option> <?php echo $rowNombre["nombreLocalidad"] ?> </option>
-                                            <?php } ?>
+                                        <h3>Localidad:</h3>
+                                        <div class="custom-form-group">
+                                            <div class='d-flex justify-content-between align-items-center'>
+                                            <select class="custom-form-control" name="evaluadores" id="evaluadores" aria-label="Default select example">
+                                                <option value="">Seleccione una localidad</option>
+                                <?php
+                                                include('connection.php');
+                                                $sql = "SELECT nombreLocalidad, id FROM localidades WHERE numeromesa = 'no definido' AND id_evaluador = '$id_usr'";
+                                                $consulta = mysqli_query($conn, $sql);
+                                                while ($vec = mysqli_fetch_row($consulta)) {
+                                                    $nombrelocalidad = "$vec[0]";
+                                                    $id_localidad = "$vec[1]";
+                                                    echo "<option value='$id_localidad'>$nombrelocalidad</option>";
+                                                }
+                                                ?>
                                             </select>
-                                            <button id="enviar" name="enviar"> Enviar </button>
-
-                                        
+                                            </div>
+                                        </div>
                                         <h5>Integrantes del grupo</h5>
                                     </div>
                                     <div class="mb-3">
@@ -571,7 +588,7 @@ include("session.php");
                                 <div class="col-md-3"></div>
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <h3>Num de mesa</h3>
+                                        <h3>Num de mesa ()</h3>
                                     </div>
                                     <div class="mb-3">
                                         <a href="microemprendimiento.php">
@@ -584,28 +601,142 @@ include("session.php");
                                 </div>
                             </div>
                         </div>
+                        <style>
+                            .smaller-select {
+    width: 3rem; /* Suficiente para acomodar dos dígitos */
+}
+
+                        </style>
                         <div class="container notasContenedor mt-4">
-                            <div class="row">
-                                <div class="col">
-                                    <h3>Num de mesa</h3> 
-                                        <select>
-                                            <?php
-                                            $queryNumero = "SELECT * FROM localidades WHERE 1";
-                                            $sqlNumero = mysqli_query($conn, $queryNumero);
-                                            while ($rowNumero = mysqli_fetch_array($sqlNumero)) { ?>
-                                                        <option> <?php echo $rowNumero["numeromesa"] ?> </option>
-                                            <?php } ?>
-                                        </select>
-                                    <h5>Informe</h5>
-                                    <h5>Carpeta de campo</h5>
-                                    <h5>Souvenir</h5>
-                                    <h5>Fotos</h5>
-                                    <h5>Laminas</h5>
-                                    <h5>Power Point</h5>
-                                    <h5>Folleteria</h5>
-                                    <h5>Productos regionales</h5>
-                                </div>
-                            </div>
+                            
+                        <div class="row">
+    <div class="col-sm">
+        <div class="d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Informe</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores1" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Carpeta de campo</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores2" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Souvenir</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores3" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Fotos</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores4" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Laminas</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores5" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Power Point</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores6" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Folleteria</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores7" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>Productos regionales</h5>
+                <select class="custom-form-control smaller-select" name="evaluadores" id="evaluadores8" aria-label="Default select example">
+                <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+
                             <div class="row">
                                 <div class="col">
                                     <h3>Observaciones</h3>
@@ -698,26 +829,6 @@ include("session.php");
                 }
                 });
             });
-
-            // function getId1(clicked_id){
-            //     let idStand = clicked_id;
-            //     console.log(idStand);
-
-            //     // Envía idStand al servidor PHP usando AJAX
-            //     $.ajax({
-            //         method: "POST",
-            //         url: "mostar_integrantes.php", // Deja esto en blanco o coloca el nombre de este archivo PHP si es el mismo
-            //         data: { idStand: idStand },
-            //         success: function (response) {
-                    
-            //             $('#comentarios').html(response);
-            //         },
-            //         error: function (error) {
-            //             console.error("Error en la solicitud AJAX: " + error);
-            //         }
-            //     });
-            //     };
-            
         </script>
 </body>
 
