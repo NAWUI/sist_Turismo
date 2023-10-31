@@ -563,7 +563,7 @@ include("session.php");
                                                 ?>
                                             </select>
                                             </div>
-                                            <button id='' type="button" class="custom-form-control">Guardar Localidad</button>
+                                            <button id='guardarlocal' type="button" class="custom-form-control">Guardar Localidad</button>
                                         </div>
                                         <h5>Integrantes del grupo</h5>
                                     </div>
@@ -829,6 +829,6 @@ include("session.php");
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
-<script src="js/guardarlocalida.js"></script>
+<script src="js/guardarlocalidad.js"></script>
 
 </html>
