@@ -40,6 +40,7 @@ function closeNav() {
             // Obtén y muestra el id del stand seleccionado en el elemento h3
             const selectedId = stand.id;
             numMesaElement.textContent = `Num de mesa (${selectedId})`; // Actualiza el contenido del h3
+            
         });
     });
 });

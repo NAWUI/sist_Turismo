@@ -563,7 +563,7 @@ include("session.php");
                                                 ?>
                                             </select>
                                             </div>
-                                            <button id='' type="button" class="custom-form-control">Guardar Localidad</button>
+                                            <button id='guard_local' type="button" class="custom-form-control">Guardar Localidad</button>
                                         </div>
                                         <h5>Integrantes del grupo</h5>
                                     </div>
@@ -733,7 +733,7 @@ include("session.php");
                                     <div class="input-group mb-3">
                                     <input type="text" class="form-control" id="observTextbox" placeholder="Agregar observaciones...">
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" id="btn-coment" type="button">Subir</button>
+                                            <button class="btn btn-outline-secondary" id="btn-observ" type="button">Subir</button>
                                         </div>
                                     </div>    
                                 </div>
