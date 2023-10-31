@@ -1,6 +1,6 @@
 <?php
 
-    include("php/connection.php");
+    include("connection.php");
     include('session.php');
 
 ?>
