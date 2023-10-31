@@ -22,17 +22,7 @@ include("session.php");
            
         <!-- HEADER FIN -->
 
-<style>
-    /* Agrega estas clases CSS a tu archivo de estilos para definir los estilos seleccionados y deseleccionados */
-.selected-stand {
-    background-color: green;
-}
 
-.deselected-stand {
-    background-color: initial; /* O el color de fondo original de los stands */
-}
-
-</style>
         <section class="mapaLayout">
             <div class="Mapa mapContainer">
                 <div class="container mapConteinerConteiner">
