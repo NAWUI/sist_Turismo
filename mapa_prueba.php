@@ -54,9 +54,24 @@ include("session.php");
                                     </div>
                                     <div class="mb-3">
                                         <form>
-                                        <div id="integrante1" name="integrante1">
-
-                                        </div>
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="opcion" value="opcion1">
+                                                <label class="form-check-label">
+                                                    Integrante 1
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="opcion" value="opcion2">
+                                                <label class="form-check-label">
+                                                    Integrante 2
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="opcion" value="opcion3">
+                                                <label class="form-check-label">
+                                                    Integrante 3
+                                                </label>
+                                            </div>
                                         </form>
                                         <label class="mt-3">Representante: Nombre del representante</label>
                                     </div>

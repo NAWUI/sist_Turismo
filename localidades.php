@@ -57,7 +57,7 @@
                     <tbody>
                         <tr>
                         <td><?php echo $arrayLoc["nombreLocalidad"] ?></td>
-                        <td><?php/* while($arrayAlum=mysqli_fetch_array($queryAlum)){ echo "-".$arrayAlum["nombre"]."<br>"; }*/ ?></td>
+                        <td><?php /* while($arrayAlum=mysqli_fetch_array($queryAlum)){ echo "-".$arrayAlum["nombre"]."<br>"; }*/ ?></td>
                         <td><?php echo $arrayLoc["profesorACargo"] ?></td>
                         <td><?php /*while($arrayUs=mysqli_fetch_array($queryUs)){ echo "-".$arrayUs["nombre"]."<br>"; } */?></td>
                         </tr>
