@@ -4,20 +4,24 @@ session_start();
 
 $user_check = $_SESSION['nombre'];
 
-$ses_sql = mysqli_query($conn, "SELECT usuarios.id AS id_usr, usuarios.nombre, localidades.id AS id_loc FROM usuarios INNER JOIN localidades ON usuarios.id = localidades.id_evaluador WHERE usuarios.nombre = '$user_check'");
+$ses_sql = mysqli_query($conn, "SELECT usuarios.id, usuarios.nombre, localidades.id_evaluador, localidades.id FROM usuarios INNER JOIN localidades ON usuarios.id = localidades.id_evaluador WHERE usuarios.nombre = '$user_check';");
 
-if ($ses_sql->num_rows > 0) {
-    $fila = mysqli_fetch_assoc($ses_sql);
-    $id_usr = $fila['id_usr'];
-    $id_loc = $fila['id_loc'];
-} else {
-    // Manejar el error o asignar valores predeterminados si la consulta falla
-    $id_usr = 0;
-    $id_loc = 0;
+if ($ses_sql) {
+    $vec = mysqli_fetch_row($ses_sql);
+
+    // Check if $vec is not empty before accessing its elements
+    if (isset($vec[0]) && isset($vec[3])) {
+        $id_usr = $vec[0];
+        $id_loc = $vec[3];
+    } else {
+      $id_usr = "no registrado";
+      $id_loc = "no registrado";
+    }
 }
 
-if(!isset($_SESSION['nombre'])){
+if (!isset($_SESSION['nombre'])) {
+    // Redirect the user to the login page if the session variable 'nombre' is not set
     header("location:login.php");
-    // die();
+    exit();
 }
 ?>
