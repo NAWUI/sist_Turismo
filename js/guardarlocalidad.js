@@ -1,36 +1,44 @@
 $(document).ready(function () {
     $("#password").keypress(function (event) {
       if (event.which === 13) {
-        $("#enviar").click();
+        $("#guardarlocal").click();
       }
     });
   
-    $("#'guard_local").click(function () {
-      var localida = $("#evaluadores").val();
+    $("#guardarlocal").click(function () {
+      var localidad = $("#evaluadores").val();
       $.ajax({
         method: "POST",
-        url: "login_action.php",
+        url: "action_guardarlocalidad.php",
         data: {
-          localida: localida,
-        },
+          localidad: localidad },
         success: function (data) {
-          if (data === "Bienvenido") {
+            console.log(data)
+          if (data === "Localidad actualizada correctamente.") {
+
             Swal.fire({
               icon: "success",
               title: data,
               showConfirmButton: false,
               timer: 1500,
             }).then(function () {
-              window.location = "session_login.php";
+                window.location.reload;
             });
-          } else if (data === "Nombre o Contraseña incorrecta") {
+          }else if(data === "Por favor, selecciona una localidad para poder guardarla."){
             Swal.fire({
-              icon: "error",
-              title: data,
-              showConfirmButton: false,
-              timer: 1500,
-            });
-          };
+                icon: "error",
+                title: data,
+                showConfirmButton: false,
+                timer: 1500,
+              });
+          }else{
+            Swal.fire({
+                icon: "error",
+                title: data,
+                showConfirmButton: false,
+                timer: 1500,
+              });
+          }
         }
       });
     });
