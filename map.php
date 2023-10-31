@@ -726,11 +726,16 @@ include("session.php");
         </div>
     </div>
 </div>
-
+<div class="container observacionesContenedor mt-4">
 <div class="row">
                                 <div class="col">
                                     <h3>Observaciones</h3>
+                                    <div class="input-group mb-3">
                                     <input type="text" class="form-control" id="observTextbox" placeholder="Agregar observaciones...">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" id="btn-coment" type="button">Subir</button>
+                                        </div>
+                                    </div>    
                                 </div>
                             </div>
                         </div>
