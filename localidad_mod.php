@@ -69,6 +69,12 @@ if(isset($_POST['idStand'])) {
                         <option value<?php echo $nombreLocalidad; ?>selected><?php echo $nombreLocalidad; ?></option>
                     </select>
                     </div>
+                    <div class="form-group">
+                        <select style="display: none;" class="form-select" id="id_stand" name="id_stand">
+            <!-- Add options for the select element if needed -->
+                        <option value<?php echo $idStand; ?>selected><?php echo $idStand; ?></option>
+                    </select>
+                    </div>
                 <div class="mb-3">
                     <h3>Localidad: <?php echo $nombreLocalidad; ?></h3>
                     <div class="custom-form-group" id="divConSelect">
@@ -147,4 +153,5 @@ if(isset($_POST['idStand'])) {
     }
 }
 ?>
+<script src="js/getid.js"></script>
 <script src="js/cambiar_localidad.js"></script>

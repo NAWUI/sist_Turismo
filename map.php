@@ -699,6 +699,9 @@ include("session.php");
         </div>
     </div>
 </div>
+
+  
+
 <div class="container observacionesContenedor mt-4">
 <div class="row">
                                 <div class="col">

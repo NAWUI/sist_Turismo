@@ -1,25 +1,33 @@
 <?php
-include("connection.php");
-// Recibir los datos del formulario
-$titulo = $_POST["titulo"];
-$descripcion = $_POST["descripcion"];
-$calificacion = $_POST["calificacion"];
-$evaluador = $_POST[""];
-$localidades = $_POST[""];
+include('connection.php');
+include('session.php');
 
+if(isset($_POST['nombrelocalidad']) && isset($_POST['idStand']) && isset($_POST['titulo']) && isset($_POST['descripcion']) && isset($_POST['calificacion'])) {
+    $nombreLocalidad = mysqli_real_escape_string($conn, $_POST['nombrelocalidad']);
+    $idStand = mysqli_real_escape_string($conn, $_POST['idStand']);
+    $titulo = mysqli_real_escape_string($conn, $_POST['titulo']);
+    $descripcion = mysqli_real_escape_string($conn, $_POST['descripcion']);
+    $calificacion = mysqli_real_escape_string($conn, $_POST['calificacion']);
+    $id_evaluador = 
 
-// Insertar los datos en la base de datos
-$sql = "INSERT INTO `microemprendimientos`(`Titulo`, `Descripcion`, `localidades`, `evaluador`, `calificacion`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')";
+    // Obtén el id_localidades usando el nombre de la localidad
+    $queryLocalidad = "SELECT id FROM localidades WHERE nombreLocalidad = '$nombreLocalidad' AND numeromesa = '$idStand'";
+    $resultLocalidad = mysqli_query($conn, $queryLocalidad);
+    $rowLocalidad = mysqli_fetch_assoc($resultLocalidad);
+    $idLocalidad = $rowLocalidad['id'];
 
-if ($conn->query($sql) === TRUE) {
-    $response = array("success" => true);
+    // Inserta los datos en la tabla microemprendimientos
+    $queryInsert = "INSERT INTO `microemprendimientos`(`Titulo`, `Descripcion`, `id_localidades`, `calificacion` , `id_evaluador`, ) VALUES ('$titulo', '$descripcion', '$idLocalidad', '$calificacion','$id_usr')";
+    $resultInsert = mysqli_query($conn, $queryInsert);
+
+    if ($resultInsert) {
+        echo "El microemprendimiento se ha guardado correctamente.";
+    } else {
+        echo "Error al guardar el microemprendimiento.";
+    }
 } else {
-    $response = array("success" => false, "error" => $conn->error);
+    echo "Faltan parámetros en la solicitud.";
 }
 
-$conn->close();
-
-// Devolver una respuesta en formato JSON
-header("Content-type: application/json");
-echo json_encode($response);
+mysqli_close($conn);
 ?>

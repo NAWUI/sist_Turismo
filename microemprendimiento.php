@@ -1,6 +1,11 @@
 <?php
+include('connection.php');
 include('session.php');
 
+$nombreLocalidad = mysqli_real_escape_string($conn, $_POST['nombrelocalidad']);
+$idStand = mysqli_real_escape_string($conn, $_POST['idStand']);
+echo $nombreLocalidad;
+echo $idStand;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +25,18 @@ include('session.php');
             ?>
         <!-- HEADER FIN -->
 
-
+        <div class="form-group">
+                        <select style="display: none;" class="form-select" id="nombre_localidad" name="nombre_localidad">
+            <!-- Add options for the select element if needed -->
+                        <option value<?php echo $nombreLocalidad; ?>selected><?php echo $nombreLocalidad; ?></option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <select style="display: none;" class="form-select" id="id_stand" name="id_stand">
+            <!-- Add options for the select element if needed -->
+                        <option value<?php echo $idStand; ?>selected><?php echo $idStand; ?></option>
+                    </select>
+                    </div>
         <div class="custom-container">
     <h2>Formulario de Carga de Grupo</h2>
     <form id="myform" action="microemprendimiento.php"  method="POST">
@@ -49,14 +65,17 @@ include('session.php');
         </div>
     
         <br>
-        <div class="custom-btn-container"> <!-- Contenedor para el botón -->
-                <button type="submit" class="custom-btn-primary">Enviar</button>
-        </div>
+
     </form>
-    
+    <div class="custom-btn-container"> <!-- Contenedor para el botón -->
+                <button id='enviar_micro' class="custom-btn-primary">Enviar</button>
+        </div>    
 </div>
     
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="js/microemprendimiento.js"></script>
 <script src="js/script.js"></script>

@@ -91,4 +91,19 @@
                 });
             });
             
+
+            $("#emprendi").click(function () {
+                var nombrelocalidad = $("#nombre_localidad").val();
+                var idStand = $("#id_stand").val();
+                $.ajax({
+                    type: "POST",
+                    url: "microemprendimiento.php",
+                    data: {
+                            nombrelocalidad: nombrelocalidad,
+                            idStand: idStand },
+                    success: function (data) {
+                        console.log(data)
+                    },
+                });
+            });
             };
