@@ -2,23 +2,30 @@
 include("connection.php");
 
 $id_localidad = filter_input(INPUT_POST, 'localidad', FILTER_SANITIZE_STRING);
-$numeroMesa = filter_input(INPUT_POST, 'selectedId', FILTER_SANITIZE_STRING);
-//echo $numeroMesa;
-//echo $id_localidad;
-// if (!empty($numeroMesa)) {
-//     echo "Por favor, selecciona un stand para poder guardar la localidad.";
-// } elseif (!empty($id_localidad)) {
-//     echo "Por favor, selecciona una localidad para poder guardarla.";
-// } else {
-    // Intentar ejecutar la consulta de actualización
-    $query = "UPDATE `localidades` SET `numeromesa`='$numeroMesa' WHERE id = $id_localidad";
-    if (mysqli_query($conn, $query)) {
-        echo "Localidad actualizada correctamente.";
-    } else {
-        echo "Error al actualizar la localidad: " . mysqli_error($conn);
-    }
-// }
+$numeroMesa = filter_input(INPUT_POST, 'idStand', FILTER_SANITIZE_STRING);
 
+// Comprueba si el número de mesa está vacío
+if (empty($numeroMesa)) {
+    echo "Para guardar una localidad, tiene que estar seleccionado un stand.";
+    return;
+   }
+   
+   // Comprueba si el ID de la localidad está vacío
+   if (empty($id_localidad)) {
+    echo "Para guardar una localidad, tiene que estar seleccionada una localidad.";
+    return;
+   }
+   
+   // Actualiza la base de datos
+   $sql = "UPDATE `localidades` SET `numeromesa` = '$numeroMesa' WHERE `localidades`.`id` = $id_localidad;";
+   $result = $conn->query($sql);
+   
+   // Comprueba si la actualización se ha realizado correctamente
+   if ($result) {
+    echo "La localidad se ha actualizado correctamente.";
+   } else {
+    echo "Se ha producido un error al actualizar la localidad.";
+   }
 // Cierra la conexión a la base de datos después de realizar las operaciones
 mysqli_close($conn);
 ?>

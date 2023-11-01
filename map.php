@@ -545,36 +545,9 @@ include("session.php");
                         <div class="container infoContenedor">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <div class="mb-3">
-                                        <h3>Localidad:</h3>
-                                        <div class="custom-form-group">
-                                            <div class='d-flex justify-content-between align-items-center'>
-                                            <select class="custom-form-control" name="evaluadores" id="evaluadores" aria-label="Default select example">
-                                                <option value="">Seleccione una localidad</option>
-                                <?php
-                                                include('connection.php');
-                                                $sql = "SELECT nombreLocalidad, id FROM localidades WHERE numeromesa = 'no definido'";
-                                                $consulta = mysqli_query($conn, $sql);
-                                                while ($vec = mysqli_fetch_row($consulta)) {
-                                                    $nombrelocalidad = "$vec[0]";
-                                                    $id_localidad = "$vec[1]";
-                                                    echo "<option value='$id_localidad'>$nombrelocalidad</option>";
-                                                }
-                                                ?>
-                                            </select>
-                                            </div>
-                                            <button id='guardarlocal' type="button" class="custom-form-control">Guardar Localidad</button>
-                                        </div>
-                                        <h5>Integrantes del grupo</h5>
-                                    </div>
-                                    <div class="mb-3">
-                                        <form>
-                                        <div id="integrante1" name="integrante1">
+                                    <div id="lcalidad_dec">
 
-                                        </div>
-                                        </form>
-                                        <label class="mt-3">Representante: Nombre del representante</label>
-                                    </div>
+                                    </div>                               
                                 </div>
                                 <div class="col-md-3"></div>
                                 <div class="col-md-4">
@@ -752,14 +725,17 @@ include("session.php");
                                 </div>
                             </div>
                         </div>
-                        <div class="container comentariosContenedor mt-4">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" id="vercoment" type="button">Ver comentarios</button>
+                        </div>
+                        <div id="vercomentarios" class="container comentariosContenedor mt-4">
                             <div class="row">
                                 <div class="col" id="comentarios">
                                     
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -769,26 +745,7 @@ include("session.php");
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <script type="text/javascript">
-                //Funcion que toma la id de los div stand
-                function getId(clicked_id){
-                let idStand = clicked_id;
-                console.log(idStand);
-
-                // Envía idStand al servidor PHP usando AJAX
-                $.ajax({
-                    method: "POST",
-                    url: "muestra_comentarios.php", // Deja esto en blanco o coloca el nombre de este archivo PHP si es el mismo
-                    data: { idStand: idStand },
-                    success: function (response) {
-
-                        $('#comentarios').html(response);
-                    },
-                    error: function (error) {
-                        console.error("Error en la solicitud AJAX: " + error);
-                    }
-                });
- 
-            };
+  
 
 
                 
@@ -829,6 +786,7 @@ include("session.php");
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
-<script src="js/guardarlocalidad.js"></script>
+<script src="js/getid.js"></script>
+<!-- <script src="js/guardarlocalidad.js"></script> -->
 
 </html>
