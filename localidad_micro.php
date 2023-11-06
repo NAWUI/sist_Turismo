@@ -20,7 +20,15 @@ if(isset($_POST['idStand'])) {
 
             switch ($count) {
                 case 0:
-                    // Fetch nombreLocalidad for the given numeromesa (idStand)
+                    ?>
+                    
+                    <button type="button" id="emprendi" class="custom-form-control" onclick='microstand()'>Agregar emprendimiento</button>
+                    <?php
+                    break;
+                case 1:
+                    ?>
+                    <?php
+                                        // Fetch nombreLocalidad for the given numeromesa (idStand)
                     $sql_microemprendimientos = "SELECT * FROM `microemprendimientos` WHERE id_localidades = $id_localidad_value";
                     $consulta_microemprendimientos = mysqli_query($conn, $sql_microemprendimientos);
 
@@ -74,11 +82,6 @@ if(isset($_POST['idStand'])) {
                         // Handle error in microemprendimientos query
                         echo "Error: " . mysqli_error($conn);
                     }
-                    break;
-                case 1:
-                    ?>
-                    <button type="button" id="emprendi" class="custom-form-control" disabled>Agregar emprendimiento</button>
-                    <?php
                     break;
             }
         } else {
