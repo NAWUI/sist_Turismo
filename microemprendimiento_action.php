@@ -17,7 +17,8 @@ if(isset($_POST['nombrelocalidad']) && isset($_POST['idStand']) && isset($_POST[
     $idLocalidad = $rowLocalidad['id'];
 
     // Inserta los datos en la tabla microemprendimientos
-    $queryInsert = "INSERT INTO `microemprendimientos`(`Titulo`, `Descripcion`, `id_localidades`, `calificacion` , `id_evaluador`, ) VALUES ('$titulo', '$descripcion', '$idLocalidad', '$calificacion','$id_usr')";
+    $queryInsert = "INSERT INTO `microemprendimientos`(`Titulo`, `Descripcion`, `id_localidades`, `calificacion`, `id_evaluador`) VALUES ('$titulo', '$descripcion', '$idLocalidad', '$calificacion', '$id_usr')";
+
     $resultInsert = mysqli_query($conn, $queryInsert);
 
     if ($resultInsert) {

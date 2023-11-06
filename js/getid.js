@@ -18,7 +18,19 @@
                     }
                 });
 
-
+                $.ajax({
+                    method: "POST",
+                    url: "localidad_micro.php", // Deja esto en blanco o coloca el nombre de este archivo PHP si es el mismo
+                    data: { idStand: idStand },
+                    success: function (response) {
+                        console.log(response);
+                        $('#microempredimiento').html(response);
+                        // Handle the response if needed
+                    },
+                    error: function (error) {
+                        console.error("Error in AJAX request: " + error);
+                    }
+                });
                 $('#guardarlocal').click(function (){
                 let localidad = $("#evaluadores").val();
 
@@ -95,15 +107,12 @@
             $("#emprendi").click(function () {
                 var nombrelocalidad = $("#nombre_localidad").val();
                 var idStand = $("#id_stand").val();
-                $.ajax({
-                    type: "POST",
-                    url: "microemprendimiento.php",
-                    data: {
-                            nombrelocalidad: nombrelocalidad,
-                            idStand: idStand },
-                    success: function (data) {
-                        console.log(data)
-                    },
-                });
+            
+                // Construye la URL con los parámetros GET
+                var href = "microemprendimiento.php?nombre_localidad=" + encodeURIComponent(nombrelocalidad) + "&id_stand=" + encodeURIComponent(idStand);
+            
+                // Redirige al usuario al hacer clic en el botón
+                window.location.href = href;
             });
+            
             };

@@ -1,4 +1,4 @@
-$("#enviar_microemprendimiento").click(function () {
+$("#enviar_micro").click(function () {
     var nombrelocalidad = $("#nombre_localidad").val();
     var idStand = $("#id_stand").val();
     var titulo = $("#titulo").val();

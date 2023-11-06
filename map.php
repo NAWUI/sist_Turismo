@@ -740,9 +740,13 @@ function obtenerInicialesLocalidad($localidad) {
                                         <h3 id='numMesa'>Num de mesa ()</h3>
                                     </div>
                                     <div class="mb-3">
-                                        <a href="microemprendimiento.php">
-                                            <button type="button" id="emprendi" class="custom-form-control">Agregar emprendimiento</button>
-                                        </a>
+                                        <div id="microempredimiento">
+
+                                        </div>
+                                            
+                                        <div id="evaluacion">
+
+                                        </div>
                                         <a href="">
                                             <button type="button" class="custom-form-control">Guardar evaluacion</button>
                                         </a>

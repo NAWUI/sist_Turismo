@@ -2,10 +2,9 @@
 include('connection.php');
 include('session.php');
 
-$nombreLocalidad = mysqli_real_escape_string($conn, $_POST['nombrelocalidad']);
-$idStand = mysqli_real_escape_string($conn, $_POST['idStand']);
-echo $nombreLocalidad;
-echo $idStand;
+$nombreLocalidad = mysqli_real_escape_string($conn, $_GET['nombre_localidad']);
+$idStand = mysqli_real_escape_string($conn, $_GET['id_stand']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
