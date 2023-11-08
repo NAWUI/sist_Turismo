@@ -382,3 +382,21 @@ body {
   background: var(--light);
   border-radius: 40px;
 }
+
+.letras-color{
+  color: #481620;
+  background-color: #e4d5ec;
+}
+
+.letras-color.letras-color * {
+  color: inherit;
+  background-color: inherit;
+  border: none;
+}
+
+.border-top-bottom.border-top-bottom{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #FAFBFD;
+  border-top: 2px solid #FAFBFD;
+}

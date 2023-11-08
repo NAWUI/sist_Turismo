@@ -3,6 +3,8 @@ var openA = document.getElementById("open");
 var closeA = document.getElementById("close");
 var oscuro = document.getElementById("oscuro");
 var sidebarCont = document.getElementById("sidenavContent");
+var standBorder = document.getElementsByTagName("standid");
+var infoBox = document.getElementById("localidad-dec");
 
 openA.addEventListener("click", openNav); 
 closeA.addEventListener("click", closeNav); 
@@ -44,5 +46,10 @@ function closeNav() {
         });
     });
 });
+console.log(standBorder);
+standBorder.addEventListener("click", () => {
+    infoBox.classList.add("border-top-bottom");
+    console.log("AAA");
+})
 
 
