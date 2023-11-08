@@ -73,8 +73,7 @@ include('session.php');
         <div class="custom-form-group">
             <label for="evaluadores" class="custom-form-label">Evaluadores a cargo</label>
             <select class="custom-form-control" name="evaluadores" id="evaluadores" aria-label="Default select example">
-                                <option value="">Seleccione un Evaluador</option>]
-                                
+                                <option value="">Seleccione un Evaluador</option>
                                 <?php
                                 include('connection.php');
                                 $sql = "SELECT nombre, id FROM usuarios";

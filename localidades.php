@@ -45,6 +45,8 @@
                     <th scope="col">Profesor a Cargo</th>
                     <th scope="col">Curso</th>
                     <th scope="col">Evaluador</th>
+                    <th scope="col">Acciones</th>
+
                 </tr>
                 </thead>
                     <tbody>
@@ -77,6 +79,9 @@
                                 echo "<td>" . $row['profesorACargo'] . "</td>";
                                 echo "<td>" . $row['cursos'] . "</td>";
                                 echo "<td>" . $row['id_evaluador'] . "</td>";
+                                echo "<td> <button class='eliminar btn btn-danger' id='" . $row['id'] . "' value='" . $row['id'] . "'><i class='bi bi-trash'></i></button> 
+                                <a href='editar.php?id='" . $row['id'] . "'><button class='btn btn-Primary'><i class='bi bi-pencil'></i></button></a>
+                                </td>";
                                 echo "</tr>";
                             }
                         ?>
@@ -102,6 +107,8 @@ $(document).ready(function() {
     });
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
+<script src="js/eliminar.js"></script>
 </html>
