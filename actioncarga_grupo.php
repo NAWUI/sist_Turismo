@@ -23,11 +23,11 @@ $evaluadores = filter_input(INPUT_POST, 'evaluadores', FILTER_SANITIZE_STRING);
 $nombreCompleto = $nombrePR . " " . $apellidoPR;
 
 if (
-    empty($localidad) || 
-    empty($nombreALR) || empty($apellidoALR) || empty($cursoALR) || 
-    empty($nombreAL1) || empty($apellidoAL1) || empty($cursoAL1) || 
-    empty($nombreAL2) || empty($apellidoAL2) || empty($cursoAL2) || 
-    empty($nombreAL3) || empty($apellidoAL3) || empty($cursoAL3) || 
+    empty($localidad) ||
+    empty($nombreALR) || empty($apellidoALR) || empty($cursoALR) ||
+    empty($nombreAL1) || empty($apellidoAL1) || empty($cursoAL1) ||
+    empty($nombreAL2) || empty($apellidoAL2) || empty($cursoAL2) ||
+    empty($nombreAL3) || empty($apellidoAL3) || empty($cursoAL3) ||
     empty($nombrePR) || empty($apellidoPR) || empty($emailPR) || empty($telefonoPR) || empty($evaluadores)
 ) {
     echo "Rellene todos los campos.";

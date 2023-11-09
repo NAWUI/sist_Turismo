@@ -14,8 +14,8 @@ if ($ses_sql) {
         $id_usr = $vec[0];
         $id_loc = $vec[3];
     } else {
-      $id_usr = "no registrado";
-      $id_loc = "no registrado";
+        $id_usr = "no registrado";
+        $id_loc = "no registrado";
     }
 }
 
