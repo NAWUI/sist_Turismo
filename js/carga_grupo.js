@@ -9,9 +9,9 @@ $(document).ready(function(){
     // Función para manejar el evento click del botón enviar
     $("#Enviar").click(function() {
         // Obtener valores de los campos de entrada
-        var nombreGrupo = $("#nombreGrupo").val();
+    
         var localidad = $("#localidad").val();
-        var division = $("#division").val();
+  
         
         var nombreALR = $("#nombreALR").val();
         var apellidoALR = $("#apellidoALR").val();
@@ -40,9 +40,8 @@ $(document).ready(function(){
             method: "POST",
             url: "actioncarga_grupo.php",
             data: {
-                nombreGrupo: nombreGrupo,
                 localidad: localidad,
-                division: division,
+   
                 nombreALR: nombreALR,
                 apellidoALR: apellidoALR,
                 cursoALR: cursoALR,

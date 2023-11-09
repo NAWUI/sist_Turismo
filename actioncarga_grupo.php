@@ -1,9 +1,8 @@
 <?php
 include("connection.php");
 
-$nombreGrupo = filter_input(INPUT_POST, 'nombreGrupo', FILTER_SANITIZE_STRING);
+
 $localidad = filter_input(INPUT_POST, 'localidad', FILTER_SANITIZE_STRING);
-$division = filter_input(INPUT_POST, 'division', FILTER_SANITIZE_STRING);
 $nombreALR = filter_input(INPUT_POST, 'nombreALR', FILTER_SANITIZE_STRING);
 $apellidoALR = filter_input(INPUT_POST, 'apellidoALR', FILTER_SANITIZE_STRING);
 $cursoALR = filter_input(INPUT_POST, 'cursoALR', FILTER_SANITIZE_STRING);
@@ -24,7 +23,7 @@ $evaluadores = filter_input(INPUT_POST, 'evaluadores', FILTER_SANITIZE_STRING);
 $nombreCompleto = $nombrePR . " " . $apellidoPR;
 
 if (
-    empty($nombreGrupo) || empty($localidad) || empty($division) || 
+    empty($localidad) || 
     empty($nombreALR) || empty($apellidoALR) || empty($cursoALR) || 
     empty($nombreAL1) || empty($apellidoAL1) || empty($cursoAL1) || 
     empty($nombreAL2) || empty($apellidoAL2) || empty($cursoAL2) || 

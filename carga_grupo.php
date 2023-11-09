@@ -25,18 +25,12 @@ include('session.php');
         <div class="custom-container">
     <h2>Formulario de Carga de Grupo</h2>
     <form>
-        <div class="custom-form-group">
-            <label for="nombreGrupo" class="custom-form-label">Nombre del grupo</label>
-            <input type="text" class="custom-form-control" id="nombreGrupo" placeholder="Nombre del grupo">
-        </div>
+
         <div class="custom-form-group">
             <label for="localidad" class="custom-form-label">Localidad asignada</label>
             <input type="text" class="custom-form-control" id="localidad" placeholder="Localidad asignada">
         </div>
-        <div class="custom-form-group">
-            <label for="division" class="custom-form-label">División</label>
-            <input type="text" class="custom-form-control" id="division" placeholder="División">
-        </div>
+
         <!-- Buttons to open modals for Students, Representante, and Professor -->
         <div class="custom-form-group">
             <label for="representante" class="custom-form-label">Representante (Alumno)</label>
