@@ -18,109 +18,96 @@ if (isset($_POST['idStand'])) {
         if ($consulta) {
             $count = mysqli_num_rows($consulta);
 
-            switch ($count) {
-                case 0:
-                    ?>
+            if ($count == 0) {
+                ?>
+                <button type="button" id="emprendi" class="custom-form-control" onclick='microstand()'>Agregar
+                    Microemprendimiento
+                </button>
+                <?php
 
-                    <button type="button" id="emprendi" class="custom-form-control" onclick='microstand()'>Agregar emprendimiento</button>
-                    <?php
-                    break;
-                case 1:
-                    ?>
-                    <?php
-                    // Fetch nombreLocalidad for the given numeromesa (idStand)
-                    $sql_microemprendimientos = "SELECT * FROM `microemprendimientos` WHERE id_localidades = $id_localidad_value";
-                    $consulta_microemprendimientos = mysqli_query($conn, $sql_microemprendimientos);
+            } elseif ($count >= 1) {
+                ?>
 
-                    if ($consulta_microemprendimientos) {
-                        $row_microemprendimientos = mysqli_fetch_assoc($consulta_microemprendimientos);
-                        if ($row_microemprendimientos) {
-                            $titulo = $row_microemprendimientos['Titulo'];
-                            $descripcion = $row_microemprendimientos['Descripcion'];
-                            $calificacion = $row_microemprendimientos['calificacion'];
-                            $id_evaluador = $row_microemprendimientos['id_evaluador'];
+                <button type="button" id="emprendi" class="custom-form-control" onclick='microstand()'>Agregar
+                    Microemprendimiento
+                </button>
 
-                            $sql_evaluador = "SELECT nombre FROM `usuarios` WHERE id = '$id_evaluador'";
-                            $consulta_evaluador = mysqli_query($conn, $sql_evaluador);
+                <div class="modal fade" id="microemprendimientoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Detalles del Microemprendimiento</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Aquí se mostrarán los datos del microemprendimiento -->
+                                <div id="microemprendimientoDatos">
 
-                            if ($consulta_evaluador) {
-                                $row_evaluador = mysqli_fetch_assoc($consulta_evaluador);
-                                if ($row_evaluador) {
-                                    $evaluador = $row_evaluador['nombre'];
+                                    <?php
+                                    while ($row_microemprendimientos = mysqli_fetch_assoc($consulta)) {
+                                        $titulo = $row_microemprendimientos['Titulo'];
+                                        $descripcion = $row_microemprendimientos['Descripcion'];
+                                        $calificacion = $row_microemprendimientos['calificacion'];
+                                        $id_evaluador = $row_microemprendimientos['id_evaluador'];
 
-                                    // Output your HTML here
-                                    ?>
+                                        $sql_evaluador = "SELECT nombre FROM `usuarios` WHERE id = '$id_evaluador'";
+                                        $consulta_evaluador = mysqli_query($conn, $sql_evaluador);
 
-                                    <button type="button" id="emprendi" class="custom-form-control" onclick='microstand()'>Agregar
-                                        Microemprendimiento
-                                    </button>
-
-
-                                    <div class="modal fade" id="microemprendimientoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Detalles del Microemprendimiento</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <!-- Aquí se mostrarán los datos del microemprendimiento -->
-                                                    <div id="microemprendimientoDatos">
-                                                        <div class="mb-3">
-                                                            <h5>Microemprendimientos:</h5>
-                                                            <div class="form-check">
-                                                                <label class="form-check-label">Tiutulo:
-                                                                    <?php echo $titulo; ?>
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <label class="form-check-label">Descripcion:
-                                                                    <?php echo $descripcion; ?>
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <label class="form-check-label">Calificacion:
-                                                                    <?php echo $calificacion; ?>
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <label class="form-check-label">Evaluador:
-                                                                    <?php echo $evaluador; ?>
-                                                                </label>
-                                                            </div>
-                                                        </div>
+                                        if ($consulta_evaluador) {
+                                            $row_evaluador = mysqli_fetch_assoc($consulta_evaluador);
+                                            if ($row_evaluador) {
+                                                $evaluador = $row_evaluador['nombre'];
+                                                ?>
+                                                <div class="mb-3">
+                                                    <h5>Microemprendimientos:</h5>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">Título:
+                                                            <?php echo $titulo; ?>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">Descripción:
+                                                            <?php echo $descripcion; ?>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">Calificación:
+                                                            <?php echo $calificacion; ?>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">Evaluador:
+                                                            <?php echo $evaluador; ?>
+                                                        </label>
                                                     </div>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                <?php
+                                            } else {
+                                                // Handle case when evaluador data is not found
+                                                echo "Evaluador data not found.";
+                                            }
+                                        } else {
+                                            // Handle error in evaluador query
+                                            echo "Error: " . mysqli_error($conn);
+                                        }
+                                    }
+                                    ?>
 
-                                    <!-- Agrega el botón que abrirá el modal -->
-                                    <button type="button" class="custom-form-control" data-bs-toggle="modal" data-bs-target="#microemprendimientoModal">
-                                        Ver Microemprendimientos
-                                    </button>
-                                    <?php
-                                } else {
-                                    // Handle case when evaluador data is not found
-                                    echo "Evaluador data not found.";
-                                }
-                            } else {
-                                // Handle error in evaluador query
-                                echo "Error: " . mysqli_error($conn);
-                            }
-                        } else {
-                            // Handle case when microemprendimientos data is not found
-                            echo "Microemprendimientos data not found.";
-                        }
-                    } else {
-                        // Handle error in microemprendimientos query
-                        echo "Error: " . mysqli_error($conn);
-                    }
-                    break;
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agrega el botón que abrirá el modal -->
+                <button type="button" class="custom-form-control" data-bs-toggle="modal" data-bs-target="#microemprendimientoModal">
+                    Ver Microemprendimientos
+                </button>
+                <?php
             }
         } else {
             // Handle database query error

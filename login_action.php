@@ -14,7 +14,7 @@ $count = mysqli_num_rows($result);
 
 if ($count == 1) {
    $_SESSION['nombre'] = $row['nombre'];
-   echo "BienvenAido";
+   echo "Bienvenido";
 } else {
    echo "Nombre o Contraseña incorrecta";
 }
