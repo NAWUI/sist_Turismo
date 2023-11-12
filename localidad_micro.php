@@ -50,31 +50,59 @@ if (isset($_POST['idStand'])) {
 
                                     // Output your HTML here
                                     ?>
-                                    <div class="mb-3">
-                                        <h5>Microemprendimientos:</h5>
-                                        <div class="form-check">
-                                            <label class="form-check-label">Tiutulo:
-                                                <?php echo $titulo; ?>
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <label class="form-check-label">Descripcion:
-                                                <?php echo $descripcion; ?>
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <label class="form-check-label">Calificacion:
-                                                <?php echo $calificacion; ?>
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <label class="form-check-label">Evaluador:
-                                                <?php echo $evaluador; ?>
-                                            </label>
+
+                                    <button type="button" id="emprendi" class="custom-form-control" onclick='microstand()'>Agregar
+                                        Microemprendimiento
+                                    </button>
+
+
+                                    <div class="modal fade" id="microemprendimientoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Detalles del Microemprendimiento</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- Aquí se mostrarán los datos del microemprendimiento -->
+                                                    <div id="microemprendimientoDatos">
+                                                        <div class="mb-3">
+                                                            <h5>Microemprendimientos:</h5>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">Tiutulo:
+                                                                    <?php echo $titulo; ?>
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">Descripcion:
+                                                                    <?php echo $descripcion; ?>
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">Calificacion:
+                                                                    <?php echo $calificacion; ?>
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">Evaluador:
+                                                                    <?php echo $evaluador; ?>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <button type="button" id="emprendi" class="custom-form-control" onclick='microstand()'>Agregar emprendimiento</button>
 
+                                    <!-- Agrega el botón que abrirá el modal -->
+                                    <button type="button" class="custom-form-control" data-bs-toggle="modal" data-bs-target="#microemprendimientoModal">
+                                        Ver Microemprendimientos
+                                    </button>
                                     <?php
                                 } else {
                                     // Handle case when evaluador data is not found
