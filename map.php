@@ -27,7 +27,8 @@ function obtenerInicialesLocalidad($localidad)
     <title>Sistema de Jornadas Turísticas</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
 
@@ -49,7 +50,8 @@ function obtenerInicialesLocalidad($localidad)
                             <div class="standHorINVISIBLE"></div>
                         </div>
                         <div class="col standAjusteH">
-                            <div class="standHor standid" onClick="getId(this.id)" id="stand1" name="stand1" data-url="php/localidades_mapa.php" data-target="stand" data-id="1">
+                            <div class="standHor standid" onClick="getId(this.id)" id="stand1" name="stand1"
+                                data-url="php/localidades_mapa.php" data-target="stand" data-id="1">
                                 <?php
                                 $sqlStand = "SELECT * FROM localidades WHERE numeromesa='stand1'";
                                 $resultStand = mysqli_query($conn, $sqlStand);
@@ -60,7 +62,7 @@ function obtenerInicialesLocalidad($localidad)
                                         //$nombre_localidad = "Santa Teresita";
                                         $iniciales = obtenerInicialesLocalidad($arrayStand["nombreLocalidad"]);
                                         echo $iniciales; // Esto imprimirá "S T"
-
+                                
                                         //echo $arrayStand["nombreLocalidad"];
                                     }
                                 }
@@ -173,7 +175,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVerINVISIBLE"></div>
@@ -417,7 +420,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand21">
@@ -431,7 +435,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand22">
@@ -445,7 +450,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                     </div>
                     <div class="row rowMap">
@@ -467,7 +473,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand24">
@@ -481,7 +488,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand25">
@@ -495,7 +503,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand26">
@@ -509,7 +518,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                     </div>
                     <div class="row rowMap">
@@ -531,7 +541,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand28">
@@ -545,7 +556,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand29">
@@ -559,7 +571,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand30">
@@ -573,7 +586,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                     </div>
                     <div class="row rowMap">
@@ -595,7 +609,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand32">
@@ -609,7 +624,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand33">
@@ -623,7 +639,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand34">
@@ -637,7 +654,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                     </div>
                     <div class="row rowMap">
@@ -661,7 +679,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteH">
                             <div class="standHor" onClick="getId(this.id)" id="stand36">
@@ -675,7 +694,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteH">
                             <div class="standHor" onClick="getId(this.id)" id="stand37">
@@ -689,7 +709,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteH">
                             <div class="standHor" onClick="getId(this.id)" id="stand38">
@@ -703,7 +724,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                         <div class="col standAjusteV">
                             <div class="standVer" onClick="getId(this.id)" id="stand39">
@@ -717,7 +739,8 @@ function obtenerInicialesLocalidad($localidad)
                                         echo $iniciales; // Esto imprimirá "S T"
                                     }
                                 }
-                                ?></div>
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -892,10 +915,12 @@ function obtenerInicialesLocalidad($localidad)
                                                         <option value="10">10</option>
                                                     </select>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <!-- Contenedor de Comentarios -->
                                 <div class="col-md-6">
                                     <div class="border-top-bottom">
@@ -922,11 +947,20 @@ function obtenerInicialesLocalidad($localidad)
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" id="vercoment" type="button">Ver
+                                    comentarios</button>
+                            </div>
+                            <div id="vercomentarios" class="container comentariosContenedor mt-4">
+                                <div class="row">
+                                    <div class="col" id="comentarios">
 
                             <!-- Contenedor de Obervaciones -->
                             <div class="row border-top-bottom">
@@ -961,7 +995,7 @@ function obtenerInicialesLocalidad($localidad)
 
     <script type="text/javascript">
         //Envio de comentarios por medio de ajax
-        $('#btn-coment').click(function() {
+        $('#btn-coment').click(function () {
             let comentario = $("#comentTextbox").val();
             let usu = <?php echo $id_usr ?>;
             let localidad = <?php echo $id_loc ?>;
@@ -975,14 +1009,14 @@ function obtenerInicialesLocalidad($localidad)
                     usu,
                     localidad
                 },
-                success: function(data) {
+                success: function (data) {
                     if (data === "Comentario subido") {
                         Swal.fire({
                             icon: "success",
                             title: data,
                             showConfirmButton: false,
                             timer: 1500,
-                        }).then(function() {
+                        }).then(function () {
                             window.location.reload;
                         });
                     } else if (data === "Error") {
@@ -999,7 +1033,9 @@ function obtenerInicialesLocalidad($localidad)
     </script>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 <script src="js/getid.js"></script>
 <!-- <script src="js/guardarlocalidad.js"></script> -->

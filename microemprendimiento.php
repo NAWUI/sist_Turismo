@@ -37,7 +37,7 @@ $idStand = mysqli_real_escape_string($conn, $_GET['id_stand']);
                     </select>
                     </div>
         <div class="custom-container">
-    <h2>Formulario de Carga de Grupo</h2>
+    <h2>Formulario de Microemprendimientos</h2>
     <form id="myform" action="microemprendimiento.php"  method="POST">
         <div class="custom-form-group">
             <label for="titulo" class="custom-form-label">Titulo del microemprendimiento</label>

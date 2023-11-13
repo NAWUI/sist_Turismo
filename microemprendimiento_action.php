@@ -2,16 +2,16 @@
 include('connection.php');
 include('session.php');
 
-if(isset($_POST['nombrelocalidad']) && isset($_POST['idStand']) && isset($_POST['titulo']) && isset($_POST['descripcion']) && isset($_POST['calificacion'])) {
+if (isset($_POST['nombrelocalidad']) && isset($_POST['idStand']) && isset($_POST['titulo']) && isset($_POST['descripcion']) && isset($_POST['calificacion'])) {
     $nombreLocalidad = mysqli_real_escape_string($conn, $_POST['nombrelocalidad']);
     $idStand = mysqli_real_escape_string($conn, $_POST['idStand']);
     $titulo = mysqli_real_escape_string($conn, $_POST['titulo']);
     $descripcion = mysqli_real_escape_string($conn, $_POST['descripcion']);
     $calificacion = mysqli_real_escape_string($conn, $_POST['calificacion']);
-    $id_evaluador = 
+    $id_evaluador =
 
-    // Obtén el id_localidades usando el nombre de la localidad
-    $queryLocalidad = "SELECT id FROM localidades WHERE nombreLocalidad = '$nombreLocalidad' AND numeromesa = '$idStand'";
+        // Obtén el id_localidades usando el nombre de la localidad
+        $queryLocalidad = "SELECT id FROM localidades WHERE nombreLocalidad = '$nombreLocalidad' AND numeromesa = '$idStand'";
     $resultLocalidad = mysqli_query($conn, $queryLocalidad);
     $rowLocalidad = mysqli_fetch_assoc($resultLocalidad);
     $idLocalidad = $rowLocalidad['id'];

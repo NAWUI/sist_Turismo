@@ -62,6 +62,7 @@ if (isset($_POST['idStand'])) {
                 $apellidoD = $row_docente['apellido'];
                 $telefonoD = $row_docente['telefono'];
                 $emailD = $row_docente['email'];
+
             ?>
 
                 <div class="padding-boxes">
@@ -102,6 +103,8 @@ if (isset($_POST['idStand'])) {
 
 
 
+
+
                         <h5>Integrantes del grupo</h5>
 
 
@@ -120,6 +123,7 @@ if (isset($_POST['idStand'])) {
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
 
+
                         <!-- Content for case 1 goes here -->
                         <form>
                             <?php
@@ -130,6 +134,7 @@ if (isset($_POST['idStand'])) {
                                 $representante = $row_personas['representante'];
 
                                 $integranteLabel = "Integrante: $nombre $apellido";
+
 
                                 if ($alumnoOProfesor == 0 && $representante == 0) {
                                     // Display radio button for non-representative members

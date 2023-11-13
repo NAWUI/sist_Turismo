@@ -16,7 +16,7 @@
        header("location:login.php");
      // die();
    }else {
-      header("location:registro.php");
+      header("location:map.php");
 
    }
 ?>

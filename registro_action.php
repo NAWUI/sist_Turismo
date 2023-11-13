@@ -13,7 +13,7 @@ if (empty($nombre) || empty($correo) || empty($password)) {
     $stmt->bind_param("s", $correo);
     $stmt->execute();
     $result = $stmt->get_result();
-    
+
     if ($result->num_rows > 0) {
         echo "El correo electrónico ya está asociado a otro usuario";
     } else {
