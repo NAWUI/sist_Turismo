@@ -385,13 +385,10 @@ body {
 
 .letras-color{
   color: #481620;
-  background-color: #e4d5ec;
 }
 
 .letras-color.letras-color * {
   color: inherit;
-  background-color: inherit;
-  border: none;
 }
 
 .border-top-bottom.border-top-bottom{
@@ -399,4 +396,26 @@ body {
   padding-bottom: 5px;
   border-bottom: 2px solid #FAFBFD;
   border-top: 2px solid #FAFBFD;
+}
+.fondo-color.fondo-color{
+  background-color: #e4d5ec;
+}
+.padding-boxes{
+  padding: 10px;
+}
+.btn-custom-info.btn-custom-info.btn-custom-info{
+  border: 2px solid #5d424763;
+}
+.btn-custom-info.btn-custom-info:hover , .btn-custom-info:focus{
+  background-color: #dbbbfc;
+  color: #481620;
+}
+.animation-test{
+  transition: all 1s ease-out;
+}
+.btn{
+  border: 0;
+}
+.border-custom-info.border-custom-info.border-custom-info{
+  border: 2px solid #5d424763;
 }

@@ -3,7 +3,7 @@ var openA = document.getElementById("open");
 var closeA = document.getElementById("close");
 var oscuro = document.getElementById("oscuro");
 var sidebarCont = document.getElementById("sidenavContent");
-var standBorder = document.getElementsByTagName("standid");
+
 var infoBox = document.getElementById("localidad-dec");
 
 openA.addEventListener("click", openNav); 
@@ -26,7 +26,8 @@ function closeNav() {
   document.addEventListener("DOMContentLoaded", () => {
     const stands = document.querySelectorAll(".standVer, .standHor");
     const numMesaElement = document.getElementById("numMesa"); // Selecciona el elemento h3
-
+    const standBorder = document.getElementsByClassName("standid");
+    console.log(standBorder);
     stands.forEach(stand => {
         stand.addEventListener("click", () => {
             // Primero, deselecciona todos los stands
@@ -45,11 +46,11 @@ function closeNav() {
             
         });
     });
+    standBorder.addEventListener("click", function(){ 
+        infoBox.classList.add("border-top-bottom");
+        console.log("AAA"); 
+    }); 
 });
-console.log(standBorder);
-standBorder.addEventListener("click", () => {
-    infoBox.classList.add("border-top-bottom");
-    console.log("AAA");
-})
+
 
 

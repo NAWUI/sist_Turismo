@@ -22,7 +22,7 @@ if(isset($_POST['idStand'])) {
                 case 0:
                     ?>
                     
-                    <button type="button" id="emprendi" class="custom-form-control" onclick='microstand()'>Agregar emprendimiento</button>
+                    <button type="button" id="emprendi" class="custom-form-control btn-custom-info" onclick='microstand()'>Agregar emprendimiento</button>
                     <?php
                     break;
                 case 1:
