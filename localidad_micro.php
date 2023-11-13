@@ -20,7 +20,7 @@ if (isset($_POST['idStand'])) {
 
             if ($count == 0) {
                 ?>
-                <button type="button" id="emprendi" class="custom-form-control" onclick='microstand()'>Agregar
+                <button type="button" id="emprendi" class="custom-form-control btn-custom-info" onclick='microstand()'>Agregar
                     Microemprendimiento
                 </button>
                 <?php
@@ -28,7 +28,7 @@ if (isset($_POST['idStand'])) {
             } elseif ($count >= 1) {
                 ?>
 
-                <button type="button" id="emprendi" class="custom-form-control" onclick='microstand()'>Agregar
+                <button type="button" id="emprendi" class="custom-form-control btn-custom-info" onclick='microstand()'>Agregar
                     Microemprendimiento
                 </button>
 
@@ -104,7 +104,7 @@ if (isset($_POST['idStand'])) {
                 </div>
 
                 <!-- Agrega el botón que abrirá el modal -->
-                <button type="button" class="custom-form-control" data-bs-toggle="modal" data-bs-target="#microemprendimientoModal">
+                <button type="button" class="custom-form-control btn-custom-info" data-bs-toggle="modal" data-bs-target="#microemprendimientoModal">
                     Ver Microemprendimientos
                 </button>
                 <?php
