@@ -16,7 +16,7 @@
 
     <section class="loginLayout">
         <div class="Imagen">
-            <img style="width: 100%;height: 100%;object-fit: cover;" src="img/placeholder.jpg" alt="Imagen de ejemplo">
+            <img style="width: 100%;height: 100%;object-fit: cover; border-right: 2px solid #5d424763;" src="img/logo-inicio.jpg" alt="Imagen de ejemplo">
         </div>
         <div class="Login">
 
