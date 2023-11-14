@@ -12,12 +12,12 @@
             </button>
             <img src="img/logo.png" width="10%" alt="Jornadas Turisticas">
             <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn dropdown-toggle button-header" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <?php
                     echo $_SESSION['nombre']; ?>
                 </button>
-                <ul class="dropdown-menu" style="min-width: 3rem;">
-                    <li><a class="dropdown-item" href="logout.php">Salir</a></li>
+                <ul class="dropdown-menu " style="min-width: 3rem;">
+                    <li><a class="dropdown-item dropdown-item-custom" href="logout.php">Salir</a></li>
                 </ul>
             </div>
         </div>
