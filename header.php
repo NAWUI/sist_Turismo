@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <!-- HEADER QUE SE MUESTRA DE BASE -->
-    <nav class="navbar navbar-light bg-customBlue fixed-top" style="z-index: 1; height: 7.5vh; border-bottom: 2px solid #5d424763;">
+    <nav class="navbar navbar-light bg-customBlue fixed-top" style="z-index: 1; height: 9vh; border-bottom: 2px solid #5d424763;">
         <div class="container-fluid" id="menuToggle">
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
                 data-mdb-target="#navbarToggleExternalContent2" aria-controls="navbarToggleExternalContent1"
