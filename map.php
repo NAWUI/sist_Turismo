@@ -747,7 +747,8 @@ function obtenerInicialesLocalidad($localidad)
 
             </div>
 
-            <div class="col-md-7 col-12 letras-color fondo-color" id="admin" name="admin" style="border: 2px solid #5d424763;">
+            <div class="col-md-7 col-12 letras-color fondo-color" id="admin" name="admin"
+                style="border: 2px solid #5d424763;">
                 <div class="card fondo-color" style="border: 0;">
                     <br>
                     <div class="card-body fondo-color">
@@ -762,7 +763,8 @@ function obtenerInicialesLocalidad($localidad)
                                             <div class="row">
                                                 <div class="col-md-12" style="padding: 0;">
                                                     <div id="localidad-dec" class="col-md-12 mb-4" style="padding: 0;">
-                                                        <div class="border-top-bottom padding-boxes animation-test" id="lcalidad_dec">
+                                                        <div class="border-top-bottom padding-boxes animation-test"
+                                                            id="lcalidad_dec">
 
                                                         </div>
                                                     </div>
@@ -782,7 +784,9 @@ function obtenerInicialesLocalidad($localidad)
                                                                 </div>
 
                                                                 <a href="">
-                                                                    <button type="button" class="custom-form-control btn-custom-info">Guardar evaluacion</button>
+                                                                    <button type="button"
+                                                                        class="custom-form-control btn-custom-info">Guardar
+                                                                        evaluacion</button>
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -797,7 +801,9 @@ function obtenerInicialesLocalidad($localidad)
                                             <div class="d-flex flex-column">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <h5>Informe</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info" style="min-width: 55px;" name="evaluadores" id="evaluadores1" aria-label="Default select example">
+                                                    <select class="custom-form-control smaller-select btn-custom-info"
+                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores1"
+                                                        aria-label="Default select example">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -812,7 +818,9 @@ function obtenerInicialesLocalidad($localidad)
                                                 </div>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <h5>Carpeta de campo</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info" style="min-width: 55px;" name="evaluadores" id="evaluadores2" aria-label="Default select example">
+                                                    <select class="custom-form-control smaller-select btn-custom-info"
+                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores2"
+                                                        aria-label="Default select example">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -827,7 +835,9 @@ function obtenerInicialesLocalidad($localidad)
                                                 </div>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <h5>Souvenir</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info" style="min-width: 55px;" name="evaluadores" id="evaluadores3" aria-label="Default select example">
+                                                    <select class="custom-form-control smaller-select btn-custom-info"
+                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores3"
+                                                        aria-label="Default select example">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -842,7 +852,9 @@ function obtenerInicialesLocalidad($localidad)
                                                 </div>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <h5>Fotos</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info" style="min-width: 55px;" name="evaluadores" id="evaluadores4" aria-label="Default select example">
+                                                    <select class="custom-form-control smaller-select btn-custom-info"
+                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores4"
+                                                        aria-label="Default select example">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -857,7 +869,9 @@ function obtenerInicialesLocalidad($localidad)
                                                 </div>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <h5>Laminas</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info" style="min-width: 55px;" name="evaluadores" id="evaluadores5" aria-label="Default select example">
+                                                    <select class="custom-form-control smaller-select btn-custom-info"
+                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores5"
+                                                        aria-label="Default select example">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -872,7 +886,9 @@ function obtenerInicialesLocalidad($localidad)
                                                 </div>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <h5>Power Point</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info" style="min-width: 55px;" name="evaluadores" id="evaluadores6" aria-label="Default select example">
+                                                    <select class="custom-form-control smaller-select btn-custom-info"
+                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores6"
+                                                        aria-label="Default select example">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -887,7 +903,9 @@ function obtenerInicialesLocalidad($localidad)
                                                 </div>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <h5>Folleteria</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info" style="min-width: 55px;" name="evaluadores" id="evaluadores7" aria-label="Default select example">
+                                                    <select class="custom-form-control smaller-select btn-custom-info"
+                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores7"
+                                                        aria-label="Default select example">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -902,7 +920,9 @@ function obtenerInicialesLocalidad($localidad)
                                                 </div>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <h5>Productos regionales</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info" style="min-width: 55px;" name="evaluadores" id="evaluadores8" aria-label="Default select example">
+                                                    <select class="custom-form-control smaller-select btn-custom-info"
+                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores8"
+                                                        aria-label="Default select example">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -928,9 +948,11 @@ function obtenerInicialesLocalidad($localidad)
                                             <div class="col-md-12">
                                                 <h3>Comentarios</h3>
                                                 <div class="input-group mb-3">
-                                                    <input type="text" class="form-control border-custom-info" id="comentTextbox" placeholder="Agregar comentarios...">
+                                                    <input type="text" class="form-control border-custom-info"
+                                                        id="comentTextbox" placeholder="Agregar comentarios...">
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-outline-secondary btn-custom-info" id="btn-coment" type="button">Subir</button>
+                                                        <button class="btn btn-outline-secondary btn-custom-info"
+                                                            id="btn-coment" type="button">Subir</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -938,7 +960,8 @@ function obtenerInicialesLocalidad($localidad)
                                         <div class="row padding-boxes">
                                             <div class="col-md-12">
                                                 <div class="input-group-append">
-                                                    <button class="custom-form-control btn-custom-info" id="vercoment" type="button">Ver comentarios</button>
+                                                    <button class="custom-form-control btn-custom-info" id="vercoment"
+                                                        type="button">Ver comentarios</button>
                                                 </div>
                                                 <div id="vercomentarios" class="comentariosContenedor mt-4">
                                                     <div class="row">
@@ -954,83 +977,81 @@ function obtenerInicialesLocalidad($localidad)
                                 </div>
                             </div>
 
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" id="vercoment" type="button">Ver
-                                    comentarios</button>
-                            </div>
                             <div id="vercomentarios" class="container comentariosContenedor mt-4">
-                                <div class="row">
+                                <div class="row padding-boxes">
                                     <div class="col" id="comentarios">
 
-                            <!-- Contenedor de Obervaciones -->
-                            <div class="row border-top-bottom">
-                                <div class="col-md-12">
-                                    <h3>Observaciones</h3>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control border-custom-info" id="observTextbox" placeholder="Agregar observaciones...">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary btn-custom-info" id="btn-observ" type="button">Subir</button>
+                                        <!-- Contenedor de Obervaciones -->
+                                        <div class="row border-top-bottom">
+                                            <div class="col-md-12">
+                                                <h3>Observaciones</h3>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control border-custom-info"
+                                                        id="observTextbox" placeholder="Agregar observaciones...">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary btn-custom-info"
+                                                            id="btn-observ" type="button">Subir</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <style>
+                                        .smaller-select {
+                                            width: 3rem;
+                                            /* Suficiente para acomodar dos dígitos */
+                                        }
+                                    </style>
                                 </div>
                             </div>
                         </div>
-                        <style>
-                            .smaller-select {
-                                width: 3rem;
-                                /* Suficiente para acomodar dos dígitos */
-                            }
-                        </style>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script type="text/javascript">
-        //Envio de comentarios por medio de ajax
-        $('#btn-coment').click(function () {
-            let comentario = $("#comentTextbox").val();
-            let usu = <?php echo $id_usr ?>;
-            let localidad = <?php echo $id_loc ?>;
+                <script type="text/javascript">
+                    //Envio de comentarios por medio de ajax
+                    $('#btn-coment').click(function () {
+                        let comentario = $("#comentTextbox").val();
+                        let usu = <?php echo $id_usr ?>;
+                        let localidad = <?php echo $id_loc ?>;
 
 
-            $.ajax({
-                method: "POST",
-                url: "carga_coment.php",
-                data: {
-                    comentario,
-                    usu,
-                    localidad
-                },
-                success: function (data) {
-                    if (data === "Comentario subido") {
-                        Swal.fire({
-                            icon: "success",
-                            title: data,
-                            showConfirmButton: false,
-                            timer: 1500,
-                        }).then(function () {
-                            window.location.reload;
+                        $.ajax({
+                            method: "POST",
+                            url: "carga_coment.php",
+                            data: {
+                                comentario,
+                                usu,
+                                localidad
+                            },
+                            success: function (data) {
+                                if (data === "Comentario subido") {
+                                    Swal.fire({
+                                        icon: "success",
+                                        title: data,
+                                        showConfirmButton: false,
+                                        timer: 1500,
+                                    }).then(function () {
+                                        window.location.reload;
+                                    });
+                                } else if (data === "Error") {
+                                    Swal.fire({
+                                        icon: "error",
+                                        title: data,
+                                        showConfirmButton: false,
+                                        timer: 1500,
+                                    });
+                                };
+                            }
                         });
-                    } else if (data === "Error") {
-                        Swal.fire({
-                            icon: "error",
-                            title: data,
-                            showConfirmButton: false,
-                            timer: 1500,
-                        });
-                    };
-                }
-            });
-        });
-    </script>
+                    });
+                </script>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

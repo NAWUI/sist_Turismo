@@ -14,12 +14,21 @@ if (isset($_POST['idStand'])) {
             case 0:
                 // Display dropdown menu for selecting localidad
                 // Generate options based on your requirements
-?>
+                ?>
+                <div class="form-group">
+                    <select style="display: none;" class="form-select" id="id_stand" name="id_stand">
+                        <!-- Add options for the select element if needed -->
+                        <option value<?php echo $idStand; ?>selected>
+                            <?php echo $idStand; ?>
+                        </option>
+                    </select>
+                </div>
                 <div class="mb-3 padding-boxes">
                     <h3>Localidad:</h3>
                     <div class="custom-form-group">
                         <div class="d-flex justify-content-between align-items-center">
-                            <select class="custom-form-control btn-custom-info" name="evaluadores" id="evaluadores" aria-label="Default select example">
+                            <select class="custom-form-control btn-custom-info" name="evaluadores" id="evaluadores"
+                                aria-label="Default select example">
                                 <option value="">Seleccione una localidad</option>
                                 <?php
                                 $sql = "SELECT nombreLocalidad, id FROM localidades WHERE numeromesa = 'no definido'";
@@ -36,7 +45,10 @@ if (isset($_POST['idStand'])) {
                     </div>
                     <h5>Ingrese una localidad para poder ver a los Integrantes</h5>
                 </div>
-            <?php
+                <script src="js/guardarlocalidad.js"></script>
+
+                <?php
+
                 break;
 
             case 1:
@@ -63,25 +75,32 @@ if (isset($_POST['idStand'])) {
                 $telefonoD = $row_docente['telefono'];
                 $emailD = $row_docente['email'];
 
-            ?>
+                ?>
 
                 <div class="padding-boxes">
                     <div class="form-group">
                         <select style="display: none;" class="form-select" id="nombre_localidad" name="nombre_localidad">
                             <!-- Add options for the select element if needed -->
-                            <option value<?php echo $nombreLocalidad; ?>selected><?php echo $nombreLocalidad; ?></option>
+                            <option value<?php echo $nombreLocalidad; ?>selected>
+                                <?php echo $nombreLocalidad; ?>
+                            </option>
                         </select>
                     </div>
                     <div class="form-group">
                         <select style="display: none;" class="form-select" id="id_stand" name="id_stand">
                             <!-- Add options for the select element if needed -->
-                            <option value<?php echo $idStand; ?>selected><?php echo $idStand; ?></option>
+                            <option value<?php echo $idStand; ?>selected>
+                                <?php echo $idStand; ?>
+                            </option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <h3>Localidad: <?php echo $nombreLocalidad; ?></h3>
+                        <h3>Localidad:
+                            <?php echo $nombreLocalidad; ?>
+                        </h3>
                         <div class="custom-form-group" id="divConSelect">
-                            <select class="custom-form-control btn-custom-info" name="evaluadores" id="evaluadores" aria-label="Default select example">
+                            <select class="custom-form-control btn-custom-info" name="evaluadores" id="evaluadores"
+                                aria-label="Default select example">
                                 <option value="">Seleccione una localidad</option>
                                 <?php
                                 $sql = "SELECT nombreLocalidad, id FROM localidades WHERE NOT nombreLocalidad = '$nombreLocalidad'";
@@ -95,7 +114,8 @@ if (isset($_POST['idStand'])) {
                             </select>
                         </div>
                         <div class="custom-form-group">
-                            <button id="cambiarlocal" type="button" class="custom-form-control btn-custom-info">Cambiar Localidad</button>
+                            <button id="cambiarlocal" type="button" class="custom-form-control btn-custom-info">Cambiar
+                                Localidad</button>
                         </div>
 
 
@@ -110,13 +130,19 @@ if (isset($_POST['idStand'])) {
 
                         <label class="form-check-label">Datos del docente a cargo:</label>
                         <div class="form-check">
-                            <label class="form-check-label">Nombre: <?php echo $nombreD . " " . $apellidoD; ?></label>
+                            <label class="form-check-label">Nombre:
+                                <?php echo $nombreD . " " . $apellidoD; ?>
+                            </label>
                         </div>
                         <div class="form-check">
-                            <label class="form-check-label">Correo: <?php echo $emailD; ?></label>
+                            <label class="form-check-label">Correo:
+                                <?php echo $emailD; ?>
+                            </label>
                         </div>
                         <div class="form-check">
-                            <label class="form-check-label">Numero de telefono: <?php echo $telefonoD; ?></label>
+                            <label class="form-check-label">Numero de telefono:
+                                <?php echo $telefonoD; ?>
+                            </label>
                         </div>
 
 
@@ -138,19 +164,22 @@ if (isset($_POST['idStand'])) {
 
                                 if ($alumnoOProfesor == 0 && $representante == 0) {
                                     // Display radio button for non-representative members
-                            ?>
+                                    ?>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="opcion" value="<?php echo $nombre; ?>" id="<?php echo $nombre; ?>">
+                                        <input class="form-check-input" type="checkbox" name="opcion" value="<?php echo $nombre; ?>"
+                                            id="<?php echo $nombre; ?>">
                                         <label class="form-check-label" for="<?php echo $nombre; ?>">
                                             <?php echo $integranteLabel; ?>
                                         </label>
                                     </div>
-                                <?php
+                                    <?php
                                 } else if ($alumnoOProfesor == 0 && $representante == 1) {
                                     // Display representative label
-                                ?>
-                                    <label class="mt-3">Representante: <?php echo "$nombre $apellido"; ?></label>
-                            <?php
+                                    ?>
+                                        <label class="mt-3">Representante:
+                                        <?php echo "$nombre $apellido"; ?>
+                                        </label>
+                                    <?php
                                 }
                             }
                             ?>
@@ -158,8 +187,9 @@ if (isset($_POST['idStand'])) {
                     </div>
 
                 </div>
-            
-<?php
+                <script src="js/getid.js"></script>
+                <script src="js/cambiar_localidad.js"></script>
+                <?php
                 break;
         }
     } else {
@@ -168,5 +198,3 @@ if (isset($_POST['idStand'])) {
     }
 }
 ?>
-<script src="js/getid.js"></script>
-<script src="js/cambiar_localidad.js"></script>
