@@ -28,18 +28,71 @@ include('session.php');
     <!-- HEADER FIN -->
     <br>
     <br>
+    <style>
+        /* Estilos para la tabla */
+        table {
+            color: #481620;
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 10px; /* Bordes redondeados para la tabla */
+        }
 
-    <div class="container">
+        /* Estilo para el encabezado */
+        th {
+            background-color: #c898e6; 
+            color: #481620;
+            padding: 10px;
+            text-align: left;
+            border-radius: 10px 10px 0 0;
+        }
+
+        /* Estilo para las celdas */
+        td {
+            color: #481620;
+            padding: 10px;
+        }
+
+        tr:first-child{
+            border-radius: 10px 10px 0 0;
+        }
+        /* Estilo para filas pares */
+        tr:nth-child(even) {
+            background-color: #ddcfe6; /* Lila claro */
+        }
+
+        /* Estilo para filas impares */
+        tr:nth-child(odd) {
+            background-color: #D7BCE8; /* Lila */
+        }
+        tr:last-child{
+            border-radius: 0px 0px 10px 10px;
+        }
+        .search-bar {
+            margin: 10px 0;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+    </style>
+    <div class="container" style="min-height: 83vh;">
         <div class="row">
-            <div class="col-lg-6">
-                <input type="text" class="form-control rounded" id="busqueda" placeholder="Buscar...">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10 search-bar">
+                <input type="text" class="btn-custom-info" id="busqueda" placeholder="Buscar...">
             </div>
+            <div class="col-lg-1"></div>
         </div>
         <br>
         <br>
         <div class="row">
             <div class="col-lg-12">
-                <table class="table" id="tabla">
+                <table id="tabla">
                     <thead>
                         <tr>
                             <th scope="col">Número de Mesa</th>
@@ -94,6 +147,7 @@ include('session.php');
         </div>
 
     </div>
+    <?php include 'footer.php'; ?>
 
 
 

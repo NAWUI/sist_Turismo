@@ -12,8 +12,7 @@ include('session.php');
     <title>Sistema de Jornadas Turísticas</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
@@ -64,14 +63,12 @@ include('session.php');
                 <input type="text" class="custom-form-control" id="nombrePR" placeholder="Nombre">
                 <input type="text" class="custom-form-control" id="apellidoPR" placeholder="Apellido">
                 <input type="text" class="custom-form-control" id="emailPR" placeholder="Email">
-                <input type="tel" class="custom-form-control" id="telefonoPR" placeholder="Telefono" pattern="[0-9]{10}"
-                    required>
+                <input type="tel" class="custom-form-control" id="telefonoPR" placeholder="Telefono" pattern="[0-9]{10}" required>
             </div>
 
             <div class="custom-form-group">
                 <label for="evaluadores" class="custom-form-label">Evaluadores a cargo</label>
-                <select class="custom-form-control" name="evaluadores" id="evaluadores"
-                    aria-label="Default select example">
+                <select class="custom-form-control" name="evaluadores" id="evaluadores" aria-label="Default select example">
                     <option value="">Seleccione un Evaluador</option>]
 
                     <?php
@@ -92,14 +89,13 @@ include('session.php');
             </div>
         </form>
     </div>
+    <?php include 'footer.php'; ?>
 
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="js/script.js"></script>

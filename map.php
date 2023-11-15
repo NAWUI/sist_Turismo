@@ -27,8 +27,7 @@ function obtenerInicialesLocalidad($localidad)
     <title>Sistema de Jornadas Turísticas</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
 
@@ -50,8 +49,7 @@ function obtenerInicialesLocalidad($localidad)
                             <div class="standHorINVISIBLE"></div>
                         </div>
                         <div class="col standAjusteH">
-                            <div class="standHor standid" onClick="getId(this.id)" id="stand1" name="stand1"
-                                data-url="php/localidades_mapa.php" data-target="stand" data-id="1">
+                            <div class="standHor standid" onClick="getId(this.id)" id="stand1" name="stand1" data-url="php/localidades_mapa.php" data-target="stand" data-id="1">
                                 <?php
                                 $sqlStand = "SELECT * FROM localidades WHERE numeromesa='stand1'";
                                 $resultStand = mysqli_query($conn, $sqlStand);
@@ -62,7 +60,7 @@ function obtenerInicialesLocalidad($localidad)
                                         //$nombre_localidad = "Santa Teresita";
                                         $iniciales = obtenerInicialesLocalidad($arrayStand["nombreLocalidad"]);
                                         echo $iniciales; // Esto imprimirá "S T"
-                                
+
                                         //echo $arrayStand["nombreLocalidad"];
                                     }
                                 }
@@ -747,7 +745,7 @@ function obtenerInicialesLocalidad($localidad)
 
             </div>
 
-            <div class="col-md-7 col-12 letras-color fondo-color" id="admin" name="admin" style="border: 2px solid #5d424763;">
+            <div class="col-md-7 col-12 letras-color fondo-color" id="admin" name="admin" style="border-left: 2px solid #5d424763;">
                 <div class="card fondo-color" style="border: 0;">
                     <br>
                     <div class="card-body fondo-color">
@@ -930,7 +928,7 @@ function obtenerInicialesLocalidad($localidad)
                                                 <div class="input-group mb-3">
                                                     <input type="text" class="form-control border-custom-info" id="comentTextbox" placeholder="Agregar comentarios...">
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-outline-secondary btn-custom-info" id="btn-coment" type="button">Subir</button>
+                                                        <button style="z-index: 0;" class="btn btn-outline-secondary btn-custom-info" id="btn-coment" type="button">Subir</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -943,8 +941,7 @@ function obtenerInicialesLocalidad($localidad)
                                                 <div id="vercomentarios" class="comentariosContenedor mt-4">
                                                     <div class="row">
                                                         <div class="col" id="comentarios">
-
-                                                        </div>
+                                                            
                                                     </div>
                                                 </div>
 
@@ -962,30 +959,35 @@ function obtenerInicialesLocalidad($localidad)
                                 <div class="row">
                                     <div class="col" id="comentarios">
 
-                            <!-- Contenedor de Obervaciones -->
-                            <div class="row border-top-bottom">
-                                <div class="col-md-12">
-                                    <h3>Observaciones</h3>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control border-custom-info" id="observTextbox" placeholder="Agregar observaciones...">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary btn-custom-info" id="btn-observ" type="button">Subir</button>
+                                        <!-- Contenedor de Obervaciones -->
+                                        <div class="row border-top-bottom">
+                                            <div class="col-md-12">
+                                                <h3>Observaciones</h3>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control border-custom-info" id="observTextbox" placeholder="Agregar observaciones...">
+                                                    <div class="input-group-append">
+                                                        <button style="z-index: 0;" class="btn btn-outline-secondary btn-custom-info" id="btn-observ" type="button">Subir</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <style>
+                                        .smaller-select {
+                                            width: 3rem;
+                                            /* Suficiente para acomodar dos dígitos */
+                                        }
+                                    </style>
                                 </div>
                             </div>
                         </div>
-                        <style>
-                            .smaller-select {
-                                width: 3rem;
-                                /* Suficiente para acomodar dos dígitos */
-                            }
-                        </style>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <?php include 'footer.php'; ?>
 
 
 
@@ -995,7 +997,7 @@ function obtenerInicialesLocalidad($localidad)
 
     <script type="text/javascript">
         //Envio de comentarios por medio de ajax
-        $('#btn-coment').click(function () {
+        $('#btn-coment').click(function() {
             let comentario = $("#comentTextbox").val();
             let usu = <?php echo $id_usr ?>;
             let localidad = <?php echo $id_loc ?>;
@@ -1009,14 +1011,14 @@ function obtenerInicialesLocalidad($localidad)
                     usu,
                     localidad
                 },
-                success: function (data) {
+                success: function(data) {
                     if (data === "Comentario subido") {
                         Swal.fire({
                             icon: "success",
                             title: data,
                             showConfirmButton: false,
                             timer: 1500,
-                        }).then(function () {
+                        }).then(function() {
                             window.location.reload;
                         });
                     } else if (data === "Error") {
@@ -1033,9 +1035,7 @@ function obtenerInicialesLocalidad($localidad)
     </script>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 <script src="js/getid.js"></script>
 <!-- <script src="js/guardarlocalidad.js"></script> -->
