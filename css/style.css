@@ -11,6 +11,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     height: 100vh;
+    width: 100vw;
 }
 .rowMap{
   height: 8%;
@@ -417,5 +418,32 @@ body {
   border: 0;
 }
 .border-custom-info.border-custom-info.border-custom-info{
+  border: 2px solid #5d424763;
+}
+.site-footer {
+  background-color: #cdb0e7;
+  color: #481620;
+  text-align: center;
+  padding: 10px 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 2px solid #5d424763;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.comment-style.comment-style{
+  border: 1px solid #5d4247;
+  background-color: #e7ddec;
+  padding: 3%;
+}
+.comment-user{
+  color: #2e0e14;
+  font-weight: bold;
+}
+
+.button-header.button-header{
   border: 2px solid #5d424763;
 }

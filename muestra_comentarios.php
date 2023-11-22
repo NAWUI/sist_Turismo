@@ -21,6 +21,7 @@ if ($result) {
     // Recorre los resultados y agrega el código a la variable de respuesta
     while ($row = mysqli_fetch_assoc($result)) {
         $response .= "
+
         <div class='card mb-4'>
             <div class='d-flex justify-content-between align-items-center'>
                 <p class='small text-muted mb-0'>" . $row['nombre'] . "</p>
@@ -47,6 +48,7 @@ if ($result) {
     ";
     
   ;
+
     }
 } else {
     $response = "<p>No se encontraron resultados</p>";
@@ -55,5 +57,3 @@ if ($result) {
 
 // Imprime la variable de respuesta como resultado de la solicitud AJAX
 echo $response;
-
-?>
