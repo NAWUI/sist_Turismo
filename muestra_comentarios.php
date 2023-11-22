@@ -1,5 +1,6 @@
 <?php
 include('connection.php');
+include_once('session.php');
 
 $idStand = $_POST['idStand'];
 $response = "";
@@ -20,18 +21,34 @@ if ($result) {
     // Recorre los resultados y agrega el código a la variable de respuesta
     while ($row = mysqli_fetch_assoc($result)) {
         $response .= "
-        <div class='card mb-4 comment-style'>
-        <div class='d-flex flex-row align-items-center'>
-        <p class='comment-user mb-0'>" . $row['nombre'] . "</p>
-        </div>
+
+        <div class='card mb-4'>
+            <div class='d-flex justify-content-between align-items-center'>
+                <p class='small text-muted mb-0'>" . $row['nombre'] . "</p>
+                <div class='d-flex'>
+                    <!-- Botón de edición -->
+                    " . ($row['id_usuario'] == $id_usr ? "
+                    <button id='" . $row['id_coment'] . "' value='" . $row['id_coment'] . "' type='button' class='open btn btn-link text-dark' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
+                        <i class='fas fa-edit mr-2'></i> Editar
+                    </button>" : "") . "
+                    <!-- Botón de eliminación -->
+                    " . ($row['id_usuario'] == $id_usr ? "
+                    <button type='button' class='eliminarCom btn btn-link text-danger' id='" . $row['id_coment'] . "'>
+                        <i class='eliminarCom fas fa-trash-alt'></i> Eliminar
+                    </button>" : "") . "
+                </div>
+            </div>
             <p>" . $row['comentario'] . "</p>
             <div class='d-flex justify-content-between'>
                 <div class='d-flex flex-row align-items-center'>
-                <p class='small text-muted mb-0'>" . $row['hora'] . "</p>
+                    <p class='small text-muted mb-0'>" . $row['hora'] . "</p>
                 </div>
             </div>
         </div>
-    </div>";
+    ";
+    
+  ;
+
     }
 } else {
     $response = "<p>No se encontraron resultados</p>";
