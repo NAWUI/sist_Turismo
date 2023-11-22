@@ -16,6 +16,7 @@ function obtenerInicialesLocalidad($localidad)
 
     return $iniciales_localidad;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -986,14 +987,49 @@ function obtenerInicialesLocalidad($localidad)
             </div>
         </div>
     </div>
+<!-- Modal edicion -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" id="modalContent">
+
+    </div>
+  </div>
+</div>
 
 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script type="text/javascript">
+        //Mostrar modal de edicion de comentario
+        /*const openModalButtons = document.querySelectorAll(".open");
+        const modalContent = document.getElementById("modalContent");
+
+        openModalButtons.forEach(button => {
+            button.addEventListener("click", function () {*/
+                $(document).on("click", ".open", function() {
+                    // Obtén el valor del ID del botón
+                    let modalId = $(this).attr("id");
+                    
+                    //alert(modalId);
+                    // Realiza una solicitud AJAX para obtener los datos de la base de datos
+                   $.ajax({
+                        url: 'modal_comnt.php',
+                        method: 'POST',
+                        data: { id: modalId },
+                        success: function (response) {
+                            // Actualiza el contenido del modal con los datos obtenidos
+                            modalContent.innerHTML = response;
+                            // Muestra el modal
+                            $('#myModal').modal('show');
+                        },
+                        error: function (error) {
+                            console.error("Error");
+                        }
+                    });
+                });
+           /* });
+        });*/
         //Envio de comentarios por medio de ajax
         $('#btn-coment').click(function () {
             let comentario = $("#comentTextbox").val();
@@ -1038,6 +1074,8 @@ function obtenerInicialesLocalidad($localidad)
     crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 <script src="js/getid.js"></script>
+<script src="js/eliminar_comnt.js"></script>
+<script src="js/editar_comnt.js"></script>
 <!-- <script src="js/guardarlocalidad.js"></script> -->
 
 </html>
