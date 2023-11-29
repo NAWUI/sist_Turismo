@@ -1,5 +1,6 @@
 <?php
 include('connection.php');
+include_once('session.php');
 
 // Inicializa la variable $response
 $response = "";
@@ -31,7 +32,7 @@ if (isset($_POST['idStand'])) {
             <p>" . $row['comentario'] . "</p>
             <div class='d-flex justify-content-between'>
                 <div class='d-flex flex-row align-items-center'>
-                <p class='small text-muted mb-0'>" . $row['hora'] . "</p>
+                    <p class='small text-muted mb-0'>" . $row['hora'] . "</p>
                 </div>
             </div>
         </div>
