@@ -135,8 +135,8 @@ include('session.php');
                             echo "<td>" . $row['profesorACargo'] . "</td>";
                             echo "<td>" . $row['cursos'] . "</td>";
                             echo "<td>" . $row['id_evaluador'] . "</td>";
-                            echo "<td> <button class='eliminar btn btn-danger' id='" . $row['id'] . "' value='" . $row['id'] . "'><i class='bi bi-trash'></i></button> 
-                                <a href='editar.php?id='" . $row['id'] . "'><button class='btn btn-Primary'><i class='bi bi-pencil'></i></button></a>
+                            echo "<td> <button class='eliminar btn btn-outline-secondary btn-custom-info delete-button' data-id='" . $row['id'] . "'><i class='fas fa-trash'></i></button> 
+                                        <a class='editar btn btn-custom-info' href='editar.php?id='" . $row['id'] . "'><i class='bi bi-pencil'></i></a>
                                 </td>";
                             echo "</tr>";
                         }

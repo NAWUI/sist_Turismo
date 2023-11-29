@@ -34,34 +34,30 @@ function getId(clicked_id) {
   
 
   $(document).ready(function () {
-    
-
     var comentariosVisibles = false;
 
     $("#vercoment").click(function () {
-      // Si los comentarios no están visibles, mostrarlos
-      if (!comentariosVisibles) {
-        // Envía idStand al servidor PHP usando AJAX
-        $.ajax({
-          method: "POST",
-          url: "muestra_comentarios.php", // Deja esto en blanco o coloca el nombre de este archivo PHP si es el mismo
-          data: { idStand: idStand },
-          success: function (response) {
-            $("#comentarios").html(response);
-            comentariosVisibles = true; // Cambia el estado a visible
-          },
-          error: function (error) {
-            console.error("Error en la solicitud AJAX: " + error);
-          },
-        });
-      } else {
-        // Si los comentarios están visibles, ocultarlos
-        $("#comentarios").empty(); // Vaciar el contenido del contenedor de comentarios
-        comentariosVisibles = false; // Cambia el estado a no visible
-      }
+        if (!comentariosVisibles) {
+            $.ajax({
+                method: "POST",
+                url: "muestra_comentarios.php",
+                data: { idStand: idStand },
+                success: function (response) {
+                    // Vacía el contenido antes de cargar nuevos comentarios
+                    $("#comentarios").empty();
+                    $("#comentarios").html(response);
+                    comentariosVisibles = true;
+                },
+                error: function (error) {
+                    console.error("Error en la solicitud AJAX: " + error);
+                },
+            });
+        } else {
+            $("#comentarios").empty();
+            comentariosVisibles = false;
+        }
     });
-    
-  });
+});
 
 }
 

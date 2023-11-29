@@ -144,7 +144,7 @@ if (isset($_POST['idStand'])) {
                                 <?php echo $telefonoD; ?>
                             </label>
                         </div>
-
+                        
 
                     </div>
                     <div class="d-flex justify-content-between align-items-center">

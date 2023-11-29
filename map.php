@@ -979,7 +979,7 @@ function obtenerInicialesLocalidad($localidad)
 
                                 <div id="vercomentarios" class="container comentariosContenedor mt-4">
                                     <div class="row padding-boxes">
-                                        <div class="col" id="comentarios">
+                                        <div class="col" id="comentarioss">
 
                                             <!-- Contenedor de Obervaciones -->
                                             <div class="row border-top-bottom">
