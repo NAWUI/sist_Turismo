@@ -13,8 +13,9 @@
     2. [Etapa 2: Carga de Alumnos y Profesores](#etapa-2-carga-de-alumnos-y-profesores)
     3. [Etapa 3: Asignación de Mesas y Cronograma](#etapa-3-asignación-de-mesas-y-cronograma)
     4. [Etapa 4: Acreditación y Calificación](#etapa-4-acreditación-y-calificación)
-5. [Contribuciones](#contribuciones)
-6. [Licencia](#licencia)
+5. [A futuro](#a-futuro)
+6. [Contribuciones](#contribuciones)
+7. [Licencia](#licencia)
 
 ## Introducción
 
@@ -73,6 +74,29 @@
 - Incluye un apartado de cronogramas para facilitar la gestión temporal del evento.
 
 Este sistema proporciona una experiencia integrada y eficiente para la administración de eventos de jornadas turísticas. Si tienes alguna pregunta o sugerencia, ¡no dudes en compartirla!
+
+## A Futuro
+
+### 1. Planillas de Micro-emprendimientos
+- La función de micro-emprendimientos en el sistema no está vinculada a las planillas utilizadas por los chicos de turismo durante el día de las jornadas. Será necesario rediseñar las planillas proporcionadas y llevar a cabo su integración en el sistema.
+
+### 2. Implementación del Cronograma (Vinculado a los Micro-emprendimientos)
+- Durante las jornadas turísticas, los stands mostrarán sus proyectos a los estudiantes de 7° de turismo en horarios específicos. Se asignará a cada localidad un horario para presentar su micro-emprendimiento. Se prevé la implementación de esta funcionalidad para organizar de manera eficiente las presentaciones.
+
+### 3. Historial de Movimientos
+- Se requiere la implementación de un historial de movimientos que registre las modificaciones realizadas dentro del sistema. Este historial estará disponible para su visualización por parte de todos los usuarios, proporcionando una trazabilidad completa de las acciones realizadas.
+
+### 4. Agregar Secciones en el Mapa
+- El mapa actualmente está limitado a los stands predefinidos. En caso de ser necesario agregar un salón o un nuevo stand, el sistema deberá ser capaz de cargar estas nuevas secciones de manera dinámica.
+
+### 5. Recuperación de Contraseña
+- Se deberá implementar un mecanismo de recuperación de contraseña para los usuarios. Este mecanismo podría permitir la recuperación a través de Gmail u otros métodos convenientes elegidos por los usuarios.
+
+### 6. Integración de Links
+- El sistema deberá tener acceso a los documentos anexados, como el Manual de Usuario y las Condiciones y Términos de Uso. Se planea integrar enlaces que faciliten el acceso directo a esta documentación desde el sistema.
+
+Este conjunto de mejoras y funcionalidades adicionales está planificado para ser implementado en futuras versiones del sistema, mejorando su capacidad y adaptándolo a las necesidades cambiantes del evento de jornadas turísticas.
+
 
 ## Contribuciones
 ¡Agradecemos cualquier contribución para mejorar y ampliar las funcionalidades de este sistema! Si deseas colaborar, consulta nuestras pautas de contribución en el archivo CONTRIBUTING.md.
