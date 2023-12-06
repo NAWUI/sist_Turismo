@@ -29,8 +29,8 @@
 
 ### Pasos de Instalación
 1. Clona el repositorio: `git clone https://github.com/tuusuario/jornadas-turisticas.git`
-2. Configura la conexión a la base de datos en el archivo `config.php`.
-3. Importa la estructura de la base de datos desde el archivo `database.sql`.
+2. Configura la conexión a la base de datos en el archivo `connection.php`.
+3. Importa la estructura de la base de datos desde el archivo `sist_turismo(1).sql`.
 4. Coloca los archivos en el directorio de tu servidor web.
 
 ## Elementos Utilizados
