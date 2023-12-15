@@ -7,19 +7,24 @@ $response = "";
 
 // Asegúrate de que idStand esté definida antes de usarla
 if (isset($_POST['idStand'])) {
-    $idStand = $_POST['idStand'];
 
+    $idStand = $_POST['idStand'];
+    $queryid = "SELECT id FROM `localidades` WHERE `numeromesa` = '$idStand'";
+    $resultid = mysqli_query($conn, $queryid);
+    $rowid = mysqli_fetch_assoc($resultid);
+    $id_localidad = $rowid['id'];
     // Evita posibles problemas de SQL injection utilizando prepared statements
     $query = "SELECT * FROM `comentarios` 
-              INNER JOIN `localidades` ON comentarios.id_localidades = localidades.id 
-              INNER JOIN `usuarios` ON comentarios.id_usuario = usuarios.id 
-              WHERE `numeromesa` = ? 
-              ORDER BY `hora` DESC";
+    INNER JOIN `localidades` ON comentarios.id_localidades = localidades.id 
+    INNER JOIN `usuarios` ON comentarios.id_usuario = usuarios.id 
+    WHERE `numeromesa` = ? AND localidades.id = ? 
+    ORDER BY `hora` DESC";
 
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, 's', $idStand);
+    mysqli_stmt_bind_param($stmt, 'si', $idStand, $id_localidad);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
+
 
     if ($result) {
         // Recorre los resultados y agrega el código a la variable de respuesta
