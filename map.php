@@ -980,7 +980,7 @@ function obtenerInicialesLocalidad($localidad)
 
                                 <div id="vercomentarios" class="container comentariosContenedor mt-4">
                                     <div class="row padding-boxes">
-                                        <div class="col" id="comentarioss">
+                                        <div class="col" id="comentarios">
 
                                             <!-- Contenedor de Obervaciones -->
                                             <div class="row border-top-bottom">
@@ -988,26 +988,24 @@ function obtenerInicialesLocalidad($localidad)
                                                     <h3>Observaciones</h3>
                                                     <div class="input-group mb-3">
 
-                                                            <input type="text" class="form-control border-custom-info"
-                                                                id="observTextbox"
-                                                                placeholder="Agregar observaciones...">
-                                                            <div class="input-group-append">
-                                                                <button style="z-index: 0;"
-                                                                    class="btn btn-outline-secondary btn-custom-info"
-                                                                    id="btn-observ" type="button">Subir</button>
+                                                        <input type="text" class="form-control border-custom-info"
+                                                            id="observTextbox" placeholder="Agregar observaciones...">
+                                                        <div class="input-group-append">
+                                                            <button style="z-index: 0;"
+                                                                class="btn btn-outline-secondary btn-custom-info"
+                                                                id="btn-observ" type="button">Subir</button>
 
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <style>
-                                                .smaller-select {
-                                                    width: 3rem;
-                                                    /* Suficiente para acomodar dos dígitos */
-                                                }
-                                            </style>
                                         </div>
+                                        <style>
+                                            .smaller-select {
+                                                width: 3rem;
+                                                /* Suficiente para acomodar dos dígitos */
+                                            }
+                                        </style>
                                     </div>
                                 </div>
                             </div>
@@ -1017,16 +1015,18 @@ function obtenerInicialesLocalidad($localidad)
             </div>
         </div>
     </div>
-
-<!-- Modal edicion -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" id="modalContent">
-
     </div>
-  </div>
-</div>
-<?php include 'footer.php'; ?>
+
+    <!-- Modal edicion -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" id="modalContent">
+
+            </div>
+        </div>
+    </div>
+    <?php include 'footer.php'; ?>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -1039,29 +1039,29 @@ function obtenerInicialesLocalidad($localidad)
 
         openModalButtons.forEach(button => {
             button.addEventListener("click", function () {*/
-                $(document).on("click", ".open", function() {
-                    // Obtén el valor del ID del botón
-                    let modalId = $(this).attr("id");
-                    
-                    //alert(modalId);
-                    // Realiza una solicitud AJAX para obtener los datos de la base de datos
-                   $.ajax({
-                        url: 'modal_comnt.php',
-                        method: 'POST',
-                        data: { id: modalId },
-                        success: function (response) {
-                            // Actualiza el contenido del modal con los datos obtenidos
-                            modalContent.innerHTML = response;
-                            // Muestra el modal
-                            $('#myModal').modal('show');
-                        },
-                        error: function (error) {
-                            console.error("Error");
-                        }
-                    });
-                });
-           /* });
-        });*/
+        $(document).on("click", ".open", function () {
+            // Obtén el valor del ID del botón
+            let modalId = $(this).attr("id");
+
+            //alert(modalId);
+            // Realiza una solicitud AJAX para obtener los datos de la base de datos
+            $.ajax({
+                url: 'modal_comnt.php',
+                method: 'POST',
+                data: { id: modalId },
+                success: function (response) {
+                    // Actualiza el contenido del modal con los datos obtenidos
+                    modalContent.innerHTML = response;
+                    // Muestra el modal
+                    $('#myModal').modal('show');
+                },
+                error: function (error) {
+                    console.error("Error");
+                }
+            });
+        });
+        /* });
+     });*/
         //Envio de comentarios por medio de ajax
         $('#btn-coment').click(function () {
             let comentario = $("#comentTextbox").val();

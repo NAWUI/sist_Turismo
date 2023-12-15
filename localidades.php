@@ -35,12 +35,13 @@ include('session.php');
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            border-radius: 10px; /* Bordes redondeados para la tabla */
+            border-radius: 10px;
+            /* Bordes redondeados para la tabla */
         }
 
         /* Estilo para el encabezado */
         th {
-            background-color: #c898e6; 
+            background-color: #c898e6;
             color: #481620;
             padding: 10px;
             text-align: left;
@@ -53,21 +54,26 @@ include('session.php');
             padding: 10px;
         }
 
-        tr:first-child{
+        tr:first-child {
             border-radius: 10px 10px 0 0;
         }
+
         /* Estilo para filas pares */
         tr:nth-child(even) {
-            background-color: #ddcfe6; /* Lila claro */
+            background-color: #ddcfe6;
+            /* Lila claro */
         }
 
         /* Estilo para filas impares */
         tr:nth-child(odd) {
-            background-color: #D7BCE8; /* Lila */
+            background-color: #D7BCE8;
+            /* Lila */
         }
-        tr:last-child{
+
+        tr:last-child {
             border-radius: 0px 0px 10px 10px;
         }
+
         .search-bar {
             margin: 10px 0;
         }
@@ -78,7 +84,6 @@ include('session.php');
             box-sizing: border-box;
             border-radius: 5px;
         }
-
     </style>
     <div class="container" style="min-height: 83vh;">
         <div class="row">
@@ -109,7 +114,9 @@ include('session.php');
                         <?php
 
                         // Realiza la consulta para obtener los datos de la tabla localidades
-                        $query = "SELECT * FROM localidades";
+                        $query = "SELECT *
+                        FROM localidades
+                        INNER JOIN usuarios ON localidades.id_evaluador = usuarios.id";
                         $result = mysqli_query($conn, $query);
 
                         // Itera a través de los registros de localidades
@@ -118,9 +125,11 @@ include('session.php');
                             echo "<td>" . $row['numeromesa'] . "</td>";
                             echo "<td>" . $row['nombreLocalidad'] . "</td>";
 
+
                             // Realiza una nueva consulta para obtener los alumnos del curso de la localidad
                             $curso = $row['cursos'];
-                            $alumnos_query = "SELECT nombre FROM personas WHERE cursos = '$curso'";
+
+                            $alumnos_query = "SELECT nombre, apellido FROM personas WHERE cursos = '$curso'";
                             $alumnos_result = mysqli_query($conn, $alumnos_query);
 
                             // Almacena los nombres de los alumnos en un array
@@ -131,12 +140,12 @@ include('session.php');
 
                             // Imprime la lista de alumnos en un único campo
                             echo "<td>" . implode(", ", $alumnos) . "</td>";
-
+                            // echo "<td>{$alumno['email']}</td>";
                             echo "<td>" . $row['profesorACargo'] . "</td>";
                             echo "<td>" . $row['cursos'] . "</td>";
-                            echo "<td>" . $row['id_evaluador'] . "</td>";
+                            echo "<td>" . $row['nombre'] . "</td>";
                             echo "<td> <button class='eliminar btn btn-outline-secondary btn-custom-info delete-button' data-id='" . $row['id'] . "'><i class='fas fa-trash'></i></button> 
-                                        <a class='editar btn btn-custom-info' href='editar.php?id='" . $row['id'] . "'><i class='bi bi-pencil'></i></a>
+                                        <a class='editar btn btn-custom-info' href='editar_localidad.php?id='" . $row['id'] . "'><i class='bi bi-pencil'></i></a>
                                 </td>";
                             echo "</tr>";
                         }

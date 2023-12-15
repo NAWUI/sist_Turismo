@@ -51,7 +51,7 @@ if (
     $resultAL3 = mysqli_query($conn, $insert_queryAL3);
 
     // Insertar datos de PR
-    $insert_queryPR = "INSERT INTO personas (`nombre`, `apellido`, `telefono`, `email`, `alumnoOProfesor`) VALUES ('$nombrePR', '$apellidoPR', '$telefonoPR', '$emailPR', 1)";
+    $insert_queryPR = "INSERT INTO personas (`nombre`, `apellido`,`cursos`, `telefono`, `email`, `alumnoOProfesor`) VALUES ('$nombrePR', '$apellidoPR','$cursoALR', '$telefonoPR', '$emailPR', 1)";
     $resultPR = mysqli_query($conn, $insert_queryPR);
 
     $insert_queryLOC = "INSERT INTO `localidades`(`numeromesa`, `nombreLocalidad`, `profesorACargo`, `cursos`, `id_evaluador`) VALUES ('No definido','$localidad','$nombreCompleto','$cursoALR', '$evaluadores')";
