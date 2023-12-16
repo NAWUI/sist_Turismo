@@ -10,8 +10,6 @@
   //  $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
 
    $id_usr = $vec[0];
-   $id_loc = $vec[3];
-  
    if(!isset($_SESSION['nombre'])){
        header("location:login.php");
      // die();

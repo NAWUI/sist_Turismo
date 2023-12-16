@@ -119,4 +119,4 @@ if (isset($_POST['idStand'])) {
     }
 }
 ?>
-<script src="js/getid.js"></script>
+<!-- <script src="js/getid.js"></script> -->

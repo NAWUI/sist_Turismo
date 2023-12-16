@@ -187,7 +187,7 @@ if (isset($_POST['idStand'])) {
                     </div>
 
                 </div>
-                <script src="js/getid.js"></script>
+                <!-- <script src="js/getid.js"></script> -->
                 <script src="js/cambiar_localidad.js"></script>
                 <?php
                 break;

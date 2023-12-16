@@ -15,7 +15,7 @@ if (isset($_POST['idStand'])) {
     $rowid = mysqli_fetch_assoc($resultid);
     $id_localidad = $rowid['id'];
     // Evita posibles problemas de SQL injection utilizando prepared statements
-    $query = "SELECT comentarios.*, localidades.id AS id_localidad, usuarios.id AS id_usuario, usuarios.nombre, localidades.id_evaluador FROM comentarios INNER JOIN localidades ON comentarios.id_localidades = localidades.id INNER JOIN usuarios ON comentarios.id_usuario = usuarios.id 
+    $query = "SELECT observaciones.*, localidades.id AS id_localidad, usuarios.id AS id_usuario, usuarios.nombre, localidades.id_evaluador FROM observaciones INNER JOIN localidades ON observaciones.id_localidades = localidades.id INNER JOIN usuarios ON observaciones.id_usuario = usuarios.id 
     WHERE `numeromesa` = ? AND localidades.id = ? 
     ORDER BY `hora` DESC";
 
@@ -47,7 +47,7 @@ if (isset($_POST['idStand'])) {
                     </div>
         
 
-            <p>" . $row['comentario'] . "</p>
+            <p>" . $row['observacion'] . "</p>
             <div class='d-flex justify-content-between'>
                 <div class='d-flex flex-row align-items-center'>
                     <p class='small text-muted mb-0'>" . $row['hora'] . "</p>

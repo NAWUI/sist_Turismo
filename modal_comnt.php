@@ -3,7 +3,7 @@ include('connection.php');
 
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
-    $query = "SELECT * FROM `comentarios` WHERE `id_coment`=$id";
+    $query = "SELECT comentarios.*, usuarios.id AS id_usuarios FROM comentarios INNER JOIN usuarios ON comentarios.id_usuario = usuarios.id WHERE comentarios.id = $id; ";
     $result = mysqli_query($conn, $query);
 
     if (!empty($result)) {
@@ -17,7 +17,7 @@ if (isset($_POST['id'])) {
        </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" id="<?php echo $row['id_coment']; ?>" class="editarCom btn btn-primary">Listo</button>
+        <button type="button" id="<?php echo $row['id']; ?>" class="editarCom btn btn-primary">Listo</button>
       </div>
        <?php
         

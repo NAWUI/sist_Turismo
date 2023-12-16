@@ -12,10 +12,8 @@ if ($ses_sql) {
     // Check if $vec is not empty before accessing its elements
     if (isset($vec[0]) && isset($vec[3])) {
         $id_usr = $vec[0];
-        $id_loc = $vec[3];
     } else {
         $id_usr = "no registrado";
-        $id_loc = "no registrado";
     }
 }
 

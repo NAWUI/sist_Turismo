@@ -961,10 +961,6 @@ function obtenerInicialesLocalidad($localidad)
                                         </div>
                                         <div class="row padding-boxes">
                                             <div class="col-md-12">
-                                                <div class="input-group-append">
-                                                    <button class="custom-form-control btn-custom-info" id="vercoment"
-                                                        type="button">Ver comentarios</button>
-                                                </div>
                                                 <div id="vercomentarios" class="comentariosContenedor mt-4">
                                                     <div class="row">
                                                         <div class="col" id="comentarios">
@@ -980,7 +976,7 @@ function obtenerInicialesLocalidad($localidad)
 
                                 <div id="vercomentarios" class="container comentariosContenedor mt-4">
                                     <div class="row padding-boxes">
-                                        <div class="col" id="comentarios">
+                                        <div class="col" id="comentarioss">
 
                                             <!-- Contenedor de Obervaciones -->
                                             <div class="row border-top-bottom">
@@ -997,16 +993,21 @@ function obtenerInicialesLocalidad($localidad)
 
                                                         </div>
                                                     </div>
+                                                    <div class="observaciones" id="observaciones">
+                                                    </div>
+
                                                 </div>
                                             </div>
+
                                         </div>
-                                        <style>
-                                            .smaller-select {
-                                                width: 3rem;
-                                                /* Suficiente para acomodar dos dígitos */
-                                            }
-                                        </style>
+
                                     </div>
+                                    <style>
+                                        .smaller-select {
+                                            width: 3rem;
+                                            /* Suficiente para acomodar dos dígitos */
+                                        }
+                                    </style>
                                 </div>
                             </div>
                         </div>
@@ -1014,6 +1015,7 @@ function obtenerInicialesLocalidad($localidad)
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
 
@@ -1062,77 +1064,8 @@ function obtenerInicialesLocalidad($localidad)
         });
         /* });
      });*/
-        //Envio de comentarios por medio de ajax
-        $('#btn-coment').click(function () {
-            let comentario = $("#comentTextbox").val();
-            let usu = <?php echo $id_usr ?>;
-            let localidad = <?php echo $id_loc ?>;
-
-
-            $.ajax({
-                method: "POST",
-                url: "carga_coment.php",
-                data: {
-                    comentario,
-                    usu,
-                    localidad
-                },
-                success: function (data) {
-                    if (data === "Comentario subido") {
-                        Swal.fire({
-                            icon: "success",
-                            title: data,
-                            showConfirmButton: false,
-                            timer: 1500,
-                        }).then(function () {
-                            window.location.reload;
-                        });
-                    } else if (data === "Error") {
-                        Swal.fire({
-                            icon: "error",
-                            title: data,
-                            showConfirmButton: false,
-                            timer: 1500,
-                        });
-                    };
-                }
-            });
-        });
     </script>
-    <script type="text/javascript">
-        //Envio de comentarios por medio de ajax
-        $('#btn-coment').click(function () {
-            let comentario = $("#comentTextbox").val();
-            let usu = <?php echo $id_usr ?>;
-            let localidad = <?php echo $id_loc ?>;
 
-
-            $.ajax({
-                method: "POST",
-                url: "carga_coment.php",
-                data: {
-                    comentario,
-                    usu,
-                    localidad
-                },
-                success: function (data) {
-                    if (data === "Comentario subido") {
-                        Swal.fire({
-                            icon: "success",
-                            title: data,
-                            showConfirmButton: false,
-                            timer: 1500,
-                        }).then(function () {
-                            window.location.reload;
-                        });
-                    }
-
-
-                }
-            });
-        });
-
-    </script>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -1142,6 +1075,8 @@ function obtenerInicialesLocalidad($localidad)
 <script src="js/getid.js"></script>
 <script src="js/eliminar_comnt.js"></script>
 <script src="js/editar_comnt.js"></script>
+<script src="js/eliminar_obser.js"></script>
+<script src="js/editar_obser.js"></script>
 <!-- <script src="js/guardarlocalidad.js"></script> -->
 
 </html>
