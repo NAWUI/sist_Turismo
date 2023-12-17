@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2023 a las 22:05:39
+-- Tiempo de generación: 17-12-2023 a las 05:47:57
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,6 +34,24 @@ CREATE TABLE `comentarios` (
   `id_localidades` int(11) NOT NULL,
   `hora` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id`, `comentario`, `id_usuario`, `id_localidades`, `hora`) VALUES
+(1, 'HOLA MUNDO', 2, 2, '0000-00-00 00:00:00'),
+(2, 'HOLA MUNDO', 2, 2, '0000-00-00 00:00:00'),
+(3, 'HOLA MUNDO', 2, 2, '0000-00-00 00:00:00'),
+(4, 'HOLA MUNDO', 2, 2, '2023-11-01 16:42:56'),
+(5, 'juego', 2, 2, '2023-11-01 17:25:30'),
+(6, 'juego', 2, 2, '2023-11-01 17:25:32'),
+(7, 'juego', 2, 2, '2023-11-01 17:25:36'),
+(8, 'buenas', 1, 2, '2023-11-01 17:26:24'),
+(11, 'hola soy un comentario', 2, 2, '2023-11-02 01:23:09'),
+(17, 'hola buenas', 1, 1, '2023-12-16 22:47:35'),
+(19, '', 1, 1, '2023-12-16 23:26:10'),
+(20, 'hola', 1, 1, '2023-12-17 00:08:49');
 
 -- --------------------------------------------------------
 
@@ -65,13 +83,6 @@ CREATE TABLE `escuelas` (
   `direccion` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Volcado de datos para la tabla `escuelas`
---
-
-INSERT INTO `escuelas` (`id`, `nombre`, `direccion`) VALUES
-(1, 'ksndaksj', 'sadkla');
-
 -- --------------------------------------------------------
 
 --
@@ -94,22 +105,20 @@ CREATE TABLE `evaluaciones` (
 
 CREATE TABLE `localidades` (
   `id` int(11) NOT NULL,
-  `numeromesa` varchar(40) NOT NULL,
+  `numeromesa` varchar(11) NOT NULL,
   `nombreLocalidad` varchar(50) NOT NULL,
   `profesorACargo` varchar(50) NOT NULL,
-  `cursos` int(11) NOT NULL,
-  `foto` longblob NOT NULL,
-  `id_evaluador` int(11) NOT NULL
+  `cursos` varchar(200) NOT NULL,
+  `id_evaluador` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `localidades`
 --
 
-INSERT INTO `localidades` (`id`, `numeromesa`, `nombreLocalidad`, `profesorACargo`, `cursos`, `foto`, `id_evaluador`) VALUES
-(6, 'stand1', 'Santa Teresita', 'vjg vjgvj', 0, '', 2),
-(7, 'stand2', 'Las Toninas', 'Ferreyra', 2, '', 2),
-(40, 'stand1', 'Mar del Plata', 'Pieroni', 2, '', 2);
+INSERT INTO `localidades` (`id`, `numeromesa`, `nombreLocalidad`, `profesorACargo`, `cursos`, `id_evaluador`) VALUES
+(1, 'stand2', 'Santa teresita', 'Karen Moser', '5C', '1'),
+(2, 'stand1', 'Mar del Tuyu', 'Lucas Gimenez', '6C', '2');
 
 -- --------------------------------------------------------
 
@@ -126,6 +135,40 @@ CREATE TABLE `microemprendimientos` (
   `calificacion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `microemprendimientos`
+--
+
+INSERT INTO `microemprendimientos` (`id`, `Titulo`, `Descripcion`, `id_localidades`, `id_evaluador`, `calificacion`) VALUES
+(1, 'hola micro ', 'hidbajib', 2, 1, 7),
+(2, 'micro2', 'hola mudno2', 2, 1, 10),
+(3, 'micro emprendimiento', 'hola mundo para stand 1`', 1, 1, 10),
+(4, 'segiundo micromeprendimientoq', 'hola stand 1 uno 2`', 1, 1, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `observaciones`
+--
+
+CREATE TABLE `observaciones` (
+  `id` int(11) NOT NULL,
+  `observacion` varchar(255) NOT NULL,
+  `hora` datetime NOT NULL,
+  `id_localidades` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `observaciones`
+--
+
+INSERT INTO `observaciones` (`id`, `observacion`, `hora`, `id_localidades`, `id_usuario`) VALUES
+(41, 'hola stand1', '2023-12-17 05:23:41', 2, 1),
+(42, 'hola stand 2', '2023-12-17 05:24:33', 1, 1),
+(43, 'hola stand 1 otra ves', '2023-12-17 05:25:07', 2, 1),
+(44, 'hola stand 2 como andas', '2023-12-17 05:25:25', 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -140,20 +183,25 @@ CREATE TABLE `personas` (
   `telefono` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `alumnoOProfesor` tinyint(4) NOT NULL,
-  `representante` tinyint(4) NOT NULL,
-  `id_localidades` int(11) NOT NULL
+  `representante` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `personas`
 --
 
-INSERT INTO `personas` (`id`, `nombre`, `apellido`, `cursos`, `telefono`, `email`, `alumnoOProfesor`, `representante`, `id_localidades`) VALUES
-(1, 'rpprueba', 'apelipr', 'dvfsfd', 0, '', 0, 1, 6),
-(2, 'fdhbhsdb', 'cvugc', 'gvjgv', 0, '', 0, 0, 6),
-(3, 'gjvjgvgv', 'vjgvjvj', 'j', 0, '', 0, 0, 6),
-(4, 'vjgvgjvj', 'gvjgv', 'jg', 0, '', 0, 0, 7),
-(5, 'vjg', 'vjgvj', '', 0, 'gvgjvjgv', 1, 0, 40);
+INSERT INTO `personas` (`id`, `nombre`, `apellido`, `cursos`, `telefono`, `email`, `alumnoOProfesor`, `representante`) VALUES
+(11, 'Nahuel', 'Gimenez', '5C', 0, '', 0, 1),
+(12, 'Santiago ', 'Ramallo', '5C', 0, '', 0, 0),
+(13, 'Julio', 'Sosa', '5C', 0, '', 0, 0),
+(14, 'Franco', 'Monteño', '5C', 0, '', 0, 0),
+(15, 'Karen', 'Moser', '', 2147483647, 'Moser@gmail.com', 1, 0),
+(16, 'Ariel', 'Hernan', '6C', 0, '', 0, 1),
+(17, 'Fran', 'Mandarino', '6C', 0, '', 0, 0),
+(18, 'Rocio', 'Danonino', '6C', 0, '', 0, 0),
+(19, 'Agustin', 'Perez', '6C', 0, '', 0, 0),
+(20, 'Lucas', 'Gimenez', '', 2147483647, 'Lucas@gmail.com', 1, 0),
+(25, 'Ernesto', 'Laurito', '', 2147483647, 'Laurito@gmial.com', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -173,16 +221,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `contrasenia`, `correo`) VALUES
-(1, 'fghfg', '1234', 'nahuelgimenez404@gmail.com'),
-(2, 'maria', '1234', 'maria@gmail.com'),
-(3, 'Juanl', '1234', 'juan@gmail.com'),
-(4, 'hdghdfhd', '1234', 'hjgjg@gmail.com'),
-(5, 'Juanl', '1234', 'juan2@gmail.com'),
-(6, 'fgfdgd', '1234', 'gsseg@gmail.com'),
-(7, 'Nahuel', '1234', 'nahuelgimenez303@gmail.com'),
-(8, 'Lautrophine', '1234', 'laurizzo556@gmail.com'),
-(9, 'nahuelphone', '1233', 'nahuelgimenez504@gmail.com'),
-(10, 'rama', '1234', 'rama@gmail.com');
+(1, 'Admin', '0', 'admin@gmail.com'),
+(2, 'Ayelen', '1234', 'Ayelen@gmail.com'),
+(3, 'mariano', '1234', 'mariano@gmail.com'),
+(4, 'fran', '1234', 'fran@gmail.com'),
+(5, 'jose', '1234', 'jose@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -220,15 +263,21 @@ ALTER TABLE `evaluaciones`
 -- Indices de la tabla `localidades`
 --
 ALTER TABLE `localidades`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_id_curso` (`cursos`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `microemprendimientos`
 --
 ALTER TABLE `microemprendimientos`
-  ADD KEY `fk_id_localidades_m` (`id_localidades`),
-  ADD KEY `microemprendimientos_ibfk_1` (`id_evaluador`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_localidades` (`id_localidades`),
+  ADD KEY `id_evaluador` (`id_evaluador`);
+
+--
+-- Indices de la tabla `observaciones`
+--
+ALTER TABLE `observaciones`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `personas`
@@ -250,7 +299,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `criterios`
@@ -262,7 +311,7 @@ ALTER TABLE `criterios`
 -- AUTO_INCREMENT de la tabla `escuelas`
 --
 ALTER TABLE `escuelas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `evaluaciones`
@@ -274,19 +323,31 @@ ALTER TABLE `evaluaciones`
 -- AUTO_INCREMENT de la tabla `localidades`
 --
 ALTER TABLE `localidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `microemprendimientos`
+--
+ALTER TABLE `microemprendimientos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `observaciones`
+--
+ALTER TABLE `observaciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
