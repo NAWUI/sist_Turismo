@@ -1,6 +1,6 @@
 //Modificacion de comentarios
 $(document).ready(function () {
-    $(document).on("click", ".editarCom", function() {
+    $(document).on("click", ".editarobser", function() {
         
         
         let obser = $("#edicion").val();

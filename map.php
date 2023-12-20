@@ -780,15 +780,6 @@ function obtenerInicialesLocalidad($localidad)
 
                                                                 </div>
 
-                                                                <div id="evaluacion">
-
-                                                                </div>
-
-                                                                <a href="">
-                                                                    <button type="button"
-                                                                        class="custom-form-control btn-custom-info">Guardar
-                                                                        evaluacion</button>
-                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -796,149 +787,8 @@ function obtenerInicialesLocalidad($localidad)
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Contenedor de Notas -->
-                                    <div class="row mb-5 border-top-bottom">
-                                        <div class="col-md-12 padding-boxes">
-                                            <div class="d-flex flex-column">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h5>Informe</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info"
-                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores1"
-                                                        aria-label="Default select example">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h5>Carpeta de campo</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info"
-                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores2"
-                                                        aria-label="Default select example">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h5>Souvenir</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info"
-                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores3"
-                                                        aria-label="Default select example">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h5>Fotos</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info"
-                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores4"
-                                                        aria-label="Default select example">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h5>Laminas</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info"
-                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores5"
-                                                        aria-label="Default select example">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h5>Power Point</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info"
-                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores6"
-                                                        aria-label="Default select example">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h5>Folleteria</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info"
-                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores7"
-                                                        aria-label="Default select example">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h5>Productos regionales</h5>
-                                                    <select class="custom-form-control smaller-select btn-custom-info"
-                                                        style="min-width: 55px;" name="evaluadores" id="evaluadores8"
-                                                        aria-label="Default select example">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </div>
+                                    <div id="evaluacion">
 
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -1049,6 +899,28 @@ function obtenerInicialesLocalidad($localidad)
             // Realiza una solicitud AJAX para obtener los datos de la base de datos
             $.ajax({
                 url: 'modal_comnt.php',
+                method: 'POST',
+                data: { id: modalId },
+                success: function (response) {
+                    // Actualiza el contenido del modal con los datos obtenidos
+                    modalContent.innerHTML = response;
+                    // Muestra el modal
+                    $('#myModal').modal('show');
+                },
+                error: function (error) {
+                    console.error("Error");
+                }
+            });
+        });
+
+        $(document).on("click", ".openobser", function () {
+            // Obtén el valor del ID del botón
+            let modalId = $(this).attr("id");
+
+            //alert(modalId);
+            // Realiza una solicitud AJAX para obtener los datos de la base de datos
+            $.ajax({
+                url: 'modal_obser.php',
                 method: 'POST',
                 data: { id: modalId },
                 success: function (response) {

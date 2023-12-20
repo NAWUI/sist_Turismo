@@ -29,6 +29,18 @@
       },
     });
 
+    $.ajax({
+      method: "POST",
+      url: "localidad_eva.php",
+      data: { idStand: idStand },
+      success: function (response) {
+        $("#evaluacion").html(response);
+      },
+      error: function (error) {
+        console.error("Error in AJAX request: " + error);
+      },
+    });
+
     $('#btn-coment').off('click').on('click', function () {
       let comentario = $("#comentTextbox").val();
       let localidad = idStand;

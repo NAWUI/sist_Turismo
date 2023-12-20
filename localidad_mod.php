@@ -60,7 +60,11 @@ if (isset($_POST['idStand'])) {
                 $curso = $row_localidad['cursos'];
                 $docente = $row_localidad['profesorACargo'];
                 // Fetch data for radio options and representative
-                $sql_personas = "SELECT nombre, apellido, alumnoOProfesor, representante FROM `personas` INNER JOIN localidades on localidades.cursos = personas.cursos WHERE localidades.cursos = '$curso'";
+                $sql_personas = "SELECT personas.id, personas.nombre, personas.apellido, personas.alumnoOProfesor, personas.representante 
+                 FROM `personas` 
+                 INNER JOIN localidades ON localidades.cursos = personas.cursos 
+                 WHERE localidades.cursos = '$curso'";
+
                 $consulta_personas = mysqli_query($conn, $sql_personas);
 
                 $sql_docente = "SELECT nombre, apellido, alumnoOProfesor, representante, telefono, email
@@ -117,18 +121,105 @@ if (isset($_POST['idStand'])) {
                             <button id="cambiarlocal" type="button" class="custom-form-control btn-custom-info">Cambiar
                                 Localidad</button>
                         </div>
+                        <?php
+$queryid = "SELECT id FROM `localidades` WHERE `numeromesa` = '$idStand'";
+$resultid = mysqli_query($conn, $queryid);
+$rowid = mysqli_fetch_assoc($resultid);
+$id_localidad = $rowid['id'];
 
+// Realizar consulta para verificar si ya se guardó la asistencia
+$sql_asistencia_guardada = "SELECT COUNT(*) AS count FROM asistencialocalidad WHERE id_localidad = '$id_localidad'";
+$result_asistencia_guardada = mysqli_query($conn, $sql_asistencia_guardada);
+$row_asistencia_guardada = mysqli_fetch_assoc($result_asistencia_guardada);
+$asistencia_guardada = $row_asistencia_guardada['count'];
 
+?>
 
+<h5>Integrantes del grupo</h5>
+<div class="d-flex justify-content-between align-items-center">
+    <form>
+        <?php
+        while ($row_personas = mysqli_fetch_assoc($consulta_personas)) {
+            $id_persona = $row_personas['id'];
+            $nombre = $row_personas['nombre'];
+            $apellido = $row_personas['apellido'];
+            $alumnoOProfesor = $row_personas['alumnoOProfesor'];
+            $representante = $row_personas['representante'];
 
+            $integranteLabel = "Integrante: $nombre $apellido";
+            $representanteLabel = "Representante: $nombre $apellido";
 
+            $checked = ''; // Inicialmente no se selecciona ninguna casilla
 
+            // Verificar si la asistencia ya está guardada
+            if ($asistencia_guardada > 0) {
+                // Si la asistencia ya está guardada, obtener el estado de asistencia actual
+                $sql_estado_asistencia = "SELECT asistencia FROM asistencialocalidad WHERE id_localidad = '$id_localidad' AND id_persona = '$id_persona'";
+                $result_estado_asistencia = mysqli_query($conn, $sql_estado_asistencia);
 
+                // Verificar si se obtuvo un resultado
+                if ($result_estado_asistencia) {
+                    $row_estado_asistencia = mysqli_fetch_assoc($result_estado_asistencia);
+                
+                    // Verificar si se obtuvo un resultado antes de acceder a un índice
+                    if ($row_estado_asistencia !== null) {
+                        $asistio = $row_estado_asistencia['asistencia'];
+                
+                        // Marcar la casilla según el estado de asistencia actual
+                        $checked = $asistio ? 'checked' : '';
+                    } else {
+                        // Si no se obtuvo un resultado, establecer $checked en vacío o algún valor por defecto
+                        $checked = '';
+                    }
+                }
+            }
 
-                        <h5>Integrantes del grupo</h5>
+            if ($alumnoOProfesor == 0 && $representante == 0) {
+                // Display checkbox for non-representative members
+                ?>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="opcion" value="<?php echo $nombre; ?>"
+                        id="<?php echo $id_persona; ?>" data-id="<?php echo $id_persona; ?>" <?php echo $checked; ?>>
+                    <label class="form-check-label" for="<?php echo $id_persona; ?>">
+                        <?php echo $integranteLabel; ?>
+                    </label>
+                </div>
+                <?php
+            } else if ($alumnoOProfesor == 0 && $representante == 1) {
+                // Display checkbox for representative members
+                ?>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="opcion" value="<?php echo $nombre; ?>"
+                        id="<?php echo $id_persona; ?>" data-id="<?php echo $id_persona; ?>" <?php echo $checked; ?>>
+                    <label class="form-check-label" for="<?php echo $id_persona; ?>">
+                        <?php echo $representanteLabel; ?>
+                    </label>
+                </div>
+                <?php
+            }
+        }
+        ?>
+    </form>
+</div>
 
-
-                        <label class="form-check-label">Datos del docente a cargo:</label>
+<?php
+// Mostrar el botón "Guardar Asistencia" solo si la asistencia no está guardada
+if ($asistencia_guardada == 0) {
+    ?>
+    <div class="custom-form-group">
+        <button id="guardarAsis" type="button" class="custom-form-control btn-custom-info">Guardar Asistencia</button>
+    </div>
+    <?php
+}else{
+    ?>
+    <!-- editar asistencia no es funcional -->
+    <!-- <div class="custom-form-group">
+        <button id="editarAsis" type="button" class="custom-form-control btn-custom-info">Editar Asistencia</button>
+    </div> -->
+    <?php
+}
+?>
+                        <h5>Datos del docente a cargo:</h5>
                         <div class="form-check">
                             <label class="form-check-label">Nombre:
                                 <?php echo $nombreD . " " . $apellidoD; ?>
@@ -144,50 +235,15 @@ if (isset($_POST['idStand'])) {
                                 <?php echo $telefonoD; ?>
                             </label>
                         </div>
-                        
+
 
                     </div>
-                    <div class="d-flex justify-content-between align-items-center">
 
 
-                        <!-- Content for case 1 goes here -->
-                        <form>
-                            <?php
-                            while ($row_personas = mysqli_fetch_assoc($consulta_personas)) {
-                                $nombre = $row_personas['nombre'];
-                                $apellido = $row_personas['apellido'];
-                                $alumnoOProfesor = $row_personas['alumnoOProfesor'];
-                                $representante = $row_personas['representante'];
-
-                                $integranteLabel = "Integrante: $nombre $apellido";
-
-
-                                if ($alumnoOProfesor == 0 && $representante == 0) {
-                                    // Display radio button for non-representative members
-                                    ?>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="opcion" value="<?php echo $nombre; ?>"
-                                            id="<?php echo $nombre; ?>">
-                                        <label class="form-check-label" for="<?php echo $nombre; ?>">
-                                            <?php echo $integranteLabel; ?>
-                                        </label>
-                                    </div>
-                                    <?php
-                                } else if ($alumnoOProfesor == 0 && $representante == 1) {
-                                    // Display representative label
-                                    ?>
-                                        <label class="mt-3">Representante:
-                                        <?php echo "$nombre $apellido"; ?>
-                                        </label>
-                                    <?php
-                                }
-                            }
-                            ?>
-                        </form>
-                    </div>
 
                 </div>
                 <!-- <script src="js/getid.js"></script> -->
+                <script src="js/guardar_Asist.js"></script>
                 <script src="js/cambiar_localidad.js"></script>
                 <?php
                 break;

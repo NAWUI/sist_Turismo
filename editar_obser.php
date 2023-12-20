@@ -5,7 +5,7 @@ if (isset($_POST['id'])) {
     $id = $_POST['id'];
     $observacion = $_POST['obser'];
 
-    if (!empty($coment)) {
+    if (!empty($observacion)) {
       $query = "UPDATE `observaciones` SET `observacion`='$observacion' WHERE `id`= $id";
 
       if (mysqli_query($conn, $query)) {

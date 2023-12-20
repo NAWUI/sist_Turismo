@@ -35,7 +35,7 @@ if (isset($_POST['idStand'])) {
         <div class='d-flex'>
                             <!-- Botón de edición -->
                     " . ($row['id_usuario'] == $id_usr ? "
-                    <button id='" . $row['id'] . "' value='" . $row['id_usuario'] . "' type='button' class='open btn btn-link text-dark' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
+                    <button id='" . $row['id'] . "' value='" . $row['id_usuario'] . "' type='button' class='openobser btn btn-link text-dark' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
                         <i class='fas fa-edit mr-2'></i> Editar
                     </button>" : "") . "
                     <!-- Botón de eliminación -->
