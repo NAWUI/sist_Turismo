@@ -105,9 +105,10 @@
         title: data,
         showConfirmButton: false,
         timer: 1500,
-      }).then(function () {
-        window.location.reload();
-      });
+      }).then(() => {
+        // Redirigir después de cerrar SweetAlert
+        window.location = "map.php";
+    });
     } else if (data === "Error") {
       Swal.fire({
         icon: "error",

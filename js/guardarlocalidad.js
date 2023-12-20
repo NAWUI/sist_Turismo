@@ -16,9 +16,10 @@ $("#guardarlocal").click(function () {
             title: data,
             showConfirmButton: false,
             timer: 1500,
-          }).then(function () {
-            window.location.reload;
-          });
+          }).then(() => {
+            // Redirigir después de cerrar SweetAlert
+            window.location = "map.php";
+        });
         } else if (
           data ===
           "Para guardar una localidad, tiene que estar seleccionada una localidad."

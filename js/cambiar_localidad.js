@@ -26,8 +26,9 @@ $(document).ready(function() {
                         title: data,
                         showConfirmButton: false,
                         timer: 1500,
-                    }).then(function () {
-                        window.location.reload;
+                    }).then(() => {
+                        // Redirigir después de cerrar SweetAlert
+                        window.location = "map.php";
                     });
                     } else if (data === "Para cambiar la localidad, tiene que estar seleccionada una localidad.") {
                     Swal.fire({

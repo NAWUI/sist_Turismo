@@ -26,6 +26,26 @@ if (isset($_POST['idStand'])) {
                 $rowid = mysqli_fetch_assoc($resultid);
                 $id_localidad = $rowid['id'];
 
+                // Consulta para la tabla 'criterios'
+                $queryCriterios = "SELECT `id`, `informe`, `carpetaCampo`, `souvenir`, `fotos`, `laminas`, `powerpoint`, `folleteria`, `productosRegionales`, `id_localidades`, `id_usuario` FROM `criterios` WHERE id_localidades = $id_localidad";
+                $resultCriterios = mysqli_query($conn, $queryCriterios);
+
+                // Consulta para la tabla 'personas'
+                $queryPersonas = "SELECT `id`, `nombre`, `apellido`, `cursos`, `telefono`, `email`, `alumnoOProfesor`, `representante` FROM `personas` WHERE ";
+                $resultPersonas = mysqli_query($conn, $queryPersonas);
+
+                // Consulta para la tabla 'asistencialocalidad'
+                $queryAsistenciaLocalidad = "SELECT `id`, `id_persona`, `id_localidad`, `asistencia`, `id_usuario` FROM `asistencialocalidad` WHERE 1";
+                $resultAsistenciaLocalidad = mysqli_query($conn, $queryAsistenciaLocalidad);
+
+                // Consulta para la tabla 'localidades'
+                $queryLocalidades = "SELECT `id`, `numeromesa`, `nombreLocalidad`, `profesorACargo`, `cursos`, `id_evaluador` FROM `localidades` WHERE 1";
+                $resultLocalidades = mysqli_query($conn, $queryLocalidades);
+
+                // Consulta para la tabla 'microemprendimientos'
+                $queryMicroemprendimientos = "SELECT `id`, `Titulo`, `Descripcion`, `id_localidades`, `id_evaluador`, `calificacion` FROM `microemprendimientos` WHERE 1";
+                $resultMicroemprendimientos = mysqli_query($conn, $queryMicroemprendimientos);
+
                 // Consultas para obtener los valores existentes
                 $queries = array(
                     "informe" => "SELECT informe FROM criterios WHERE id_localidades = '$id_localidad'",
@@ -42,12 +62,33 @@ if (isset($_POST['idStand'])) {
                 $results = array();
                 foreach ($queries as $key => $query) {
                     $result = mysqli_query($conn, $query);
-                    $results[$key] = mysqli_fetch_assoc($result);
+                    $row = mysqli_fetch_assoc($result);
+
+                    // Verificar si la clave existe en $row antes de acceder a ella
+                    if ($row !== null && array_key_exists($key, $row)) {
+                        $results[$key] = $row;
+                    } else {
+                        // Manejar el caso en que la clave no está definida
+                        $results[$key] = array($key => 0); // O establece un valor predeterminado
+                    }
                 }
+
+                // Verificar si todos los campos tienen un valor mayor a cero
+                $todosLosCamposMayoresACero = true;
+                foreach ($results as $key => $row) {
+                    $value = $row[$key];
+                    if ($value <= 0) {
+                        $todosLosCamposMayoresACero = false;
+                        break;
+                    }
+                }
+
                 ?>
                 <div class="form-group">
                     <select style="display: none;" class="form-select" id="id_stand" name="id_stand">
-                        <option value="<?php echo $idStand; ?>" selected><?php echo $idStand; ?></option>
+                        <option value="<?php echo $idStand; ?>" selected>
+                            <?php echo $idStand; ?>
+                        </option>
                     </select>
                 </div>
                 <!-- Contenedor de Notas -->
@@ -65,7 +106,11 @@ if (isset($_POST['idStand'])) {
                             ?>
                         </div>
                     </div>
-                    <button id="guardarCri" type="button" class="custom-form-control btn-custom-info">Guardar Criterio</button>
+                    <?php if ($todosLosCamposMayoresACero) { ?>
+                        <button id="guardarEvaluacion" type="button" class="custom-form-control btn-custom-info">Guardar Evaluación</button>
+                    <?php } else { ?>
+                        <button id="guardarCri" type="button" class="custom-form-control btn-custom-info">Guardar Criterio</button>
+                    <?php } ?>
                 </div>
                 <script src="js/guardar_Cri.js"></script>
                 <?php
@@ -78,7 +123,8 @@ if (isset($_POST['idStand'])) {
 }
 
 // Función para generar el bloque de HTML y manejar la lógica de deshabilitar el select
-function generateSelectBlock($label, $id, $value, $disabled) {
+function generateSelectBlock($label, $id, $value, $disabled)
+{
     echo '
         <div class="d-flex justify-content-between align-items-center">
             <h5 id="' . $id . '">' . $label . '</h5>
@@ -86,7 +132,7 @@ function generateSelectBlock($label, $id, $value, $disabled) {
                 <option value="">X</option>';
 
     for ($j = 1; $j <= 10; $j++) {
-        $selected = ($j == $value) ? 'selected' : '';
+        $selected = (isset($value) && $j == $value) ? 'selected' : '';
         echo '<option value="' . $j . '" ' . $selected . '>' . $j . '</option>';
     }
 

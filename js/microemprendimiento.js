@@ -26,6 +26,9 @@ $("#enviar_micro").click(function () {
                 title: data,
                 showConfirmButton: false,
                 timer: 1500,
+            }).then(() => {
+                // Redirigir después de cerrar SweetAlert
+                window.location = "map.php";
             });
             } else if (data === "Error al guardar el microemprendimiento.") {
             Swal.fire({
