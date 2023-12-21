@@ -25,27 +25,6 @@ if (isset($_POST['idStand'])) {
                 $resultid = mysqli_query($conn, $queryid);
                 $rowid = mysqli_fetch_assoc($resultid);
                 $id_localidad = $rowid['id'];
-
-                // Consulta para la tabla 'criterios'
-                $queryCriterios = "SELECT `id`, `informe`, `carpetaCampo`, `souvenir`, `fotos`, `laminas`, `powerpoint`, `folleteria`, `productosRegionales`, `id_localidades`, `id_usuario` FROM `criterios` WHERE id_localidades = $id_localidad";
-                $resultCriterios = mysqli_query($conn, $queryCriterios);
-
-                // Consulta para la tabla 'personas'
-                $queryPersonas = "SELECT `id`, `nombre`, `apellido`, `cursos`, `telefono`, `email`, `alumnoOProfesor`, `representante` FROM `personas` WHERE ";
-                $resultPersonas = mysqli_query($conn, $queryPersonas);
-
-                // Consulta para la tabla 'asistencialocalidad'
-                $queryAsistenciaLocalidad = "SELECT `id`, `id_persona`, `id_localidad`, `asistencia`, `id_usuario` FROM `asistencialocalidad` WHERE 1";
-                $resultAsistenciaLocalidad = mysqli_query($conn, $queryAsistenciaLocalidad);
-
-                // Consulta para la tabla 'localidades'
-                $queryLocalidades = "SELECT `id`, `numeromesa`, `nombreLocalidad`, `profesorACargo`, `cursos`, `id_evaluador` FROM `localidades` WHERE 1";
-                $resultLocalidades = mysqli_query($conn, $queryLocalidades);
-
-                // Consulta para la tabla 'microemprendimientos'
-                $queryMicroemprendimientos = "SELECT `id`, `Titulo`, `Descripcion`, `id_localidades`, `id_evaluador`, `calificacion` FROM `microemprendimientos` WHERE 1";
-                $resultMicroemprendimientos = mysqli_query($conn, $queryMicroemprendimientos);
-
                 // Consultas para obtener los valores existentes
                 $queries = array(
                     "informe" => "SELECT informe FROM criterios WHERE id_localidades = '$id_localidad'",
